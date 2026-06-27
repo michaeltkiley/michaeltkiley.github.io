@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Michael T. Kiley</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:      #1a1a1a;
+      --muted:    #5a5a5a;
+      --rule:     #d0ccc4;
+      --bg:       #fafaf8;
+      --accent:   #2b4a7a;
+      --accent-lt:#e8edf4;
+    }
+
+    html { font-size: 17px; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      border-bottom: 1px solid var(--rule);
+      padding: 2.8rem 0 2rem;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .name {
+      font-family: 'EB Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .title-line {
+      margin-top: 0.35rem;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      margin-top: 1.2rem;
+      display: flex;
+      gap: 1.6rem;
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 1px;
+      transition: border-color 0.15s;
+    }
+
+    nav a:hover { border-color: var(--accent); }
+    nav a.active { border-color: var(--accent); }
+
+    main {
+      flex: 1;
+      padding: 2.2rem 0 4rem;
+    }
+
+    .cv-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .download-link {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-lt);
+      transition: border-color 0.15s;
+    }
+
+    .download-link:hover { border-color: var(--accent); }
+
+    .cv-frame {
+      width: 100%;
+      height: 80vh;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+    }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 1.4rem 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 480px) {
+      .name { font-size: 1.7rem; }
+      nav { gap: 1rem; }
+      .cv-frame { height: 70vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="name">Michael T. Kiley</div>
+      <div class="title-line">Economist &mdash; Federal Reserve Board</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="cv.html" class="active">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="cv-toolbar">
+        <div class="section-label">Curriculum Vitae</div>
+        <a class="download-link"
+           href="https://docs.google.com/document/d/1xLSJa52b5WTh0I6sZohYJhHeE966QmUa4PfVhFRyemI/export?format=pdf"
+           target="_blank" rel="noopener">Download PDF</a>
+      </div>
+      <iframe
+        class="cv-frame"
+        src="https://docs.google.com/document/d/1xLSJa52b5WTh0I6sZohYJhHeE966QmUa4PfVhFRyemI/preview"
+        title="Michael T. Kiley — Curriculum Vitae"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      Updated June 2026
+    </div>
+  </footer>
+
+</body>
+</html>
