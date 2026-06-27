@@ -110,33 +110,28 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .link-list {
+    .pill-list {
       list-style: none;
       display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
-    .link-list li {
-      display: flex;
-      align-items: baseline;
-      gap: 0.8rem;
-    }
-
-    .link-list a {
-      font-size: 0.95rem;
+    .pill-list a {
+      display: inline-block;
+      font-size: 0.82rem;
       font-weight: 400;
       color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px solid var(--accent-lt);
-      transition: border-color 0.15s;
+      border: 1px solid var(--rule);
+      border-radius: 2rem;
+      padding: 0.25rem 0.85rem;
+      transition: border-color 0.15s, background 0.15s;
     }
 
-    .link-list a:hover { border-color: var(--accent); }
-
-    .link-list .desc {
-      font-size: 0.82rem;
-      color: var(--muted);
+    .pill-list a:hover {
+      border-color: var(--accent);
+      background: var(--accent-lt);
     }
 
     .section + .section { margin-top: 2.4rem; }
@@ -177,24 +172,13 @@
 
       <div class="section">
         <div class="section-label">Other websites</div>
-        <ul class="link-list">
-          <li>
-            <a href="http://www.federalreserve.gov/econresdata/michael-t-kiley.htm">Federal Reserve</a>
-          </li>
-          <li>
-            <a href="https://scholar.google.com/citations?user=gpRruBgAAAAJ&hl=en">Google Scholar</a>
-          </li>
-          <li>
-            <a href="https://ideas.repec.org/e/pki4.html">IDEAS / RePec</a>
-            <span class="desc">alternative reference sites:
-              <a href="http://orcid.org/0000-0003-0427-0131">ORCID</a>
-              &nbsp;&amp;&nbsp;
-              <a href="https://www.scopus.com/authid/detail.uri?authorId=7004930826">Scopus</a>
-            </span>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/michael-kiley-677482115">LinkedIn</a>
-          </li>
+        <ul class="pill-list">
+          <li><a href="http://www.federalreserve.gov/econresdata/michael-t-kiley.htm">Federal Reserve</a></li>
+          <li><a href="https://scholar.google.com/citations?user=gpRruBgAAAAJ&hl=en">Google Scholar</a></li>
+          <li><a href="https://ideas.repec.org/e/pki4.html">IDEAS / RePec</a></li>
+          <li><a href="http://orcid.org/0000-0003-0427-0131">ORCID</a></li>
+          <li><a href="https://www.scopus.com/authid/detail.uri?authorId=7004930826">Scopus</a></li>
+          <li><a href="https://www.linkedin.com/in/michael-kiley-677482115">LinkedIn</a></li>
         </ul>
       </div>
 
