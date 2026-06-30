@@ -143,9 +143,28 @@
       color: var(--muted);
     }
 
+    .header-inner {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+    }
+
+    .header-text { flex: 1; }
+
+    .headshot {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      flex-shrink: 0;
+      border: 1px solid var(--rule);
+    }
+
     @media (max-width: 480px) {
       .name { font-size: 1.7rem; }
       nav { gap: 1rem; }
+      .headshot { width: 80px; height: 80px; }
     }
   </style>
 </head>
@@ -153,12 +172,17 @@
 
   <header>
     <div class="container">
-      <div class="name">Michael T. Kiley</div>
-      <div class="title-line">Economist &mdash; Federal Reserve Board</div>
-      <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="cv.html">CV</a>
-      </nav>
+      <div class="header-inner">
+        <div class="header-text">
+          <div class="name">Michael T. Kiley</div>
+          <div class="title-line">Economist &mdash; Federal Reserve Board</div>
+          <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="cv.html">CV</a>
+          </nav>
+        </div>
+        <img class="headshot" src="photo.jpg" alt="Michael T. Kiley" />
+      </div>
     </div>
   </header>
 
