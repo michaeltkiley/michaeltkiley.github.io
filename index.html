@@ -36,7 +36,7 @@
     }
 
     .container {
-      max-width: 680px;
+      max-width: 760px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
@@ -136,6 +136,45 @@
 
     .section + .section { margin-top: 2.4rem; }
 
+    .tracker-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .tracker-card {
+      display: block;
+      padding: 1.1rem 1.25rem;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--ink);
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .tracker-card:hover {
+      border-color: var(--accent);
+      background: var(--accent-lt);
+    }
+
+    .tracker-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.08rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .tracker-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 560px) {
+      .tracker-grid { grid-template-columns: 1fr; }
+    }
+
     footer {
       border-top: 1px solid var(--rule);
       padding: 1.4rem 0;
@@ -179,8 +218,6 @@
           <nav>
             <a href="index.html" class="active">Home</a>
             <a href="cv.html">CV</a>
-            <a href="https://michaeltkiley.github.io/termprem/">Yield Curve Tracker</a>
-            <a href="https://michaeltkiley.github.io/monetary_policy_surprises/">Monetary Policy Expectations</a>
           </nav>
         </div>
         <img class="headshot" src="photo.jpg" alt="Michael T. Kiley" />
@@ -193,8 +230,23 @@
 
       <p class="bio">
         I am an economist at the Federal Reserve Board. This site contains
-        links to my <a href="cv.html">CV</a>.
+        links to my <a href="cv.html">CV</a> and to data and analysis based
+        on my research, updated regularly.
       </p>
+
+      <div class="section">
+        <div class="section-label">Data &amp; Analysis</div>
+        <div class="tracker-grid">
+          <a class="tracker-card" href="https://michaeltkiley.github.io/termprem/">
+            <div class="tracker-title">Yield Curve Tracker</div>
+            <div class="tracker-desc">Treasury yields, term premiums, and long-run rate expectations, updated daily.</div>
+          </a>
+          <a class="tracker-card" href="https://michaeltkiley.github.io/monetary_policy_surprises/">
+            <div class="tracker-title">Monetary Policy Expectations</div>
+            <div class="tracker-desc">Market-implied policy rate paths and FOMC surprise pass-through to asset prices.</div>
+          </a>
+        </div>
+      </div>
 
       <div class="section">
         <div class="section-label">Other websites</div>
