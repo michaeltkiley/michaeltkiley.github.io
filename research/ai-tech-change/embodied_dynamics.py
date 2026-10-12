@@ -26,13 +26,15 @@ import matplotlib.pyplot as plt
 
 import ramsey_variants as rv
 
+S_YEARS = 5                                   # the S-curve is complete after this many years
+rv.cc.configure(dA=rv.cc.BASE["d"]["K"], adj=True, scurve="ramp", T_end=S_YEARS)
 HERE, FIG, r0, G = rv.HERE, rv.FIG, rv.r0, rv.G
 CASES = [("Log", rv.HH(1, 0, 0, "Log")),
          ("Log + habits", rv.HH(1, 0.7, 0, "Log + habits")),
          ("+ hand-to-mouth (50%)", rv.HH(1, 0.7, 0.5, "H2M", kind="tank")),
          ("+ constant savers (50%)", rv.HH(1, 0.7, 0.5, "Savers", kind="saver"))]
-TIMINGS = [("scurve", "S-curve, complete by year 10"), ("mixed", "Half jump, half S-curve"),
-           ("jump", "Surprise jump")]
+TIMINGS = [("scurve", f"S-curve, complete by year {S_YEARS}"),
+           ("mixed", f"Half jump, half S-curve (complete by year {S_YEARS})"), ("jump", "Surprise jump")]
 CAPS = [("K", "Regular capital", "#1f5f9e"), ("A", "AI capital", "#c0512a")]
 
 

@@ -165,3 +165,10 @@ income, EXCLUDING revaluation of existing capital (including it gave extreme res
 ramsey_variants.HH now has kind="tank"|"saver". Main findings: real side nearly identical across blocks; habits shape
 the r response (hump; larger jump impact); H2M vs savers differ only for AI (labor share moves): H2M amplifies
 (~+0.1-0.3pp), savers dampen slightly.
+
+## Status (session 2): embodied note now uses a 5-year S-curve
+embodied_dynamics.py sets S_YEARS = 5 (cosine ramp complete at year 5); the 10-year version is in git history
+(commit "Add embodied-only dynamics..."). Output builds slowly under the current calibration (year 10: 3.1% regular, 2.2% AI
+of a 10% long-run gain), driven by adjustment costs (c = 1/x) and AI depreciation = 6.6% (equal to K); a scratch diagnostic
+under the OLD 10-year S-curve showed no adjustment costs -> 3.4/4.6 at year 10, d_A = 0.20 -> AI 3.3, IES hardly matters.
+Next step the user may want: a faster AI calibration (d_A ~ 0.2, lower c_A) and rerun the four household cases.

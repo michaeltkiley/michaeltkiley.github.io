@@ -39,8 +39,8 @@ small shock as fast as regular capital (13.1 versus 12.3). Trend growth is 1.5 p
 7.5 percent. Three timings:
 \begin{itemize}
 \item a surprise \emph{jump} at $t=0$;
-\item an \emph{S-curve}, announced at $t=0$, that rises as $\tfrac12[1-\cos(\pi t/10)]$ and is complete by year 10;
-\item \emph{half/half}: half the improvement as a jump, half along the S-curve.
+\item an \emph{S-curve}, announced at $t=0$, that rises as $\tfrac12[1-\cos(\pi t/5)]$ and is complete by year 5;
+\item \emph{half/half}: half the improvement as a jump, half along the 5-year S-curve.
 \end{itemize}
 
 \paragraph{Households.} Utility is logarithmic throughout.
@@ -61,41 +61,39 @@ I read ``50 percent'' as the population share. The rule-of-thumb group's saving 
 
 \begin{figure}[p]\centering
 \includegraphics[width=0.93\textwidth]{figures/fig_emb_scurve.pdf}
-\caption{Embodied progress, S-curve complete by year 10, same 10\% long-run output gain. Output, consumption and wages are log deviations from the pre-shock path.}\label{fig:scurve}
+\caption{Embodied progress, S-curve complete by year 5, same 10\% long-run output gain. Output, consumption and wages are log deviations from the pre-shock path.}\label{fig:scurve}
 \end{figure}
 
 \paragraph{The real side (the same in all four columns).}
-Output rises only slowly, because the gain has to be built: after 10 years it is up 1.9 percent for regular capital and
-0.9 percent for AI, against 10 percent in the long run. AI lags more because the technology improvement
-required is larger and a much bigger AI stock must be accumulated. The AI wage gain is smaller, 1.2 percent at year 10 against 2.2 percent,
-and the AI labor share falls steadily (from 69.6 to 69.2 percent at year 10 and 68.6 percent at year 20), while regular capital leaves it unchanged.
-Investment/output falls slightly under regular-capital progress and stays higher (17.5--18.0 percent) under AI,
-as AI capital is accumulated. Consumption dips slightly at first for AI, because early investment
-absorbs resources, and rises later.
+The technology is fully in place at year 5, but output builds slowly because the capital has to be installed. Under log utility
+output is up 0.7 percent for regular capital and $-0.2$ percent for AI at year 5, 3.1 and 2.2 percent at year 10, 6.1 and 5.2 percent at year 20, and 7.8 and 7.1
+percent at year 30, against 10 percent in the long run. AI lags because its technology improvement is larger and a much bigger AI stock must be accumulated. AI output
+dips slightly (about 0.5 percent) in years 3--4, because early investment absorbs resources. The AI wage gain is smaller, 1.9 percent at year 10 against 3.3 percent,
+and the AI labor share falls steadily (69.6 to 69.0 percent at year 10 and 68.5 percent at year 20), while regular capital leaves it unchanged.
+Investment/output dips slightly while firms wait for cheaper capital (regular capital from 17.4 to 17.2 percent, AI to 17.5 percent) and then rises for AI to 17.8 percent
+at year 10 and 18.1 percent at year 20. Consumption falls slightly for AI until year 4 and then recovers.
 
 \paragraph{The real interest rate.}
 \begin{itemize}
-\item \emph{Log.} Regular capital: the rate rises gradually to a peak of 8.0 percent in year 9. AI: the rate stays at 7.5 percent for about five years and then rises to 7.9 percent.
-The decade-average is 0.24 and 0.09 points above 7.5 percent.
-\item \emph{Habits.} The response becomes more hump-shaped. Regular capital peaks higher (8.1 percent). AI shows a clear dip, from 7.7 percent in year 1 to
-7.4 percent in year 5, before a sharper rise to 8.1 percent in years 9--10. With habits, marginal utility depends on consumption relative to its recent level, which makes the rate respond to the
-\emph{change} in consumption and produces the early dip and the sharper later rise. I have not decomposed this further.
-The decade averages are 0.26 and 0.12.
-\item \emph{Hand-to-mouth and constant savers.} For regular capital, both are indistinguishable from habits alone (decade average 0.25--0.26).
-For AI there is a modest difference. Hand-to-mouth deepens the dip and raises the peak (trough 7.34 percent, peak 8.17 percent). Constant savers sit
-close to habits alone (trough 7.43, peak 8.06). The decade averages are about equal (0.11 versus 0.12), because the deeper dip offsets the higher peak.
+\item \emph{Log.} Regular capital: the rate rises gradually to a peak of 8.1 percent in year 5, when the technology is complete, and then declines. AI: the rate first \emph{falls}, to 7.3 percent in year 2, and then
+rises to 8.0 percent in year 5. The decade averages are 0.36 and 0.21 points above 7.5 percent.
+\item \emph{Habits} make the response sharper. Regular capital peaks at 8.3 percent. AI shows a deep dip, from 7.8 percent in year 0 to 6.9 percent in year 2, and then a sharp rise to 8.5 percent in year 5.
+The decade averages are 0.40 and 0.27. With habits marginal utility depends on consumption relative to its recent level, which makes the rate respond to the \emph{change} in consumption; I have not
+decomposed the dip further.
+\item \emph{Hand-to-mouth and constant savers.} For regular capital, both are indistinguishable from habits alone (decade average 0.39--0.40). For AI the difference is modest.
+Hand-to-mouth deepens the dip and raises the peak (trough 6.71 percent, peak 8.64 percent), and constant savers dampen both slightly (6.96 and 8.44), against 6.86 and 8.53 for habits alone. The decade averages are about equal (0.28, 0.27, 0.27), because the deeper dip offsets the higher peak.
 \end{itemize}
 
 \paragraph{Why the two rule-of-thumb types differ only for AI.} The Ricardian half sets the rate, and its consumption is aggregate consumption
 minus what the rule-of-thumb half consumes. Figure~\ref{fig:cons} shows consumption by type. Hand-to-mouth consumption equals the wage bill. Under regular-capital
 progress the labor share does not move, so wages track output, hand-to-mouth consumption tracks aggregate consumption, and the Ricardian half sees
 about the same path as the aggregate. Under AI progress, wages lag output (the labor share falls), so hand-to-mouth consumption is first above and
-later below the aggregate. The Ricardian half's consumption is first lower and later higher, and the rate moves more. Constant savers' income includes capital income, which
-rises with output, so their consumption tracks the aggregate closely under both types of progress. They add almost nothing to the volatility of Ricardian consumption.
+later below the aggregate (they cross around year 9). The Ricardian half's consumption is first lower and later higher, and the rate moves more. Constant savers' income includes capital income, which
+rises with output, so their consumption tracks the aggregate closely under both types of progress and adds almost nothing to the volatility of Ricardian consumption.
 
 \begin{figure}[h]\centering
 \includegraphics[width=0.95\textwidth]{figures/fig_emb_cons_scurve.pdf}
-\caption{Consumption by household type, embodied progress, S-curve. Each type is shown relative to its own year-0 level; the dotted line is the aggregate relative to the pre-shock path.}\label{fig:cons}
+\caption{Consumption by household type, embodied progress, S-curve complete by year 5. Each type is shown relative to its own year-0 level; the dotted line is the aggregate relative to the pre-shock path.}\label{fig:cons}
 \end{figure}
 
 \section{A surprise jump}
@@ -136,6 +134,9 @@ Hand-to-mouth households amplify, because their consumption follows wages. Const
 \item The constant savers' saving rate (3.8\%) is calibrated so that they hold the same wealth-to-wage ratio as the economy on the initial path. A different
 saving rate or a different income definition (for example, including capital gains) changes their behavior. Including the revaluation of
 existing capital in their income produced extreme results after a jump, because installed-capital losses of 22--70 percent then collapse their consumption.
+\item \emph{Output builds slowly}: at year 10 only 31 percent (regular capital) and 22 percent (AI) of the long-run output gain has been realized. The speed depends
+mainly on the level of adjustment costs and on AI's depreciation rate (here equal to regular capital's, 6.6 percent), and not on the household block. I have not yet varied either for the 5-year S-curve, and the real-rate
+responses above are conditional on this slow-adjustment calibration.
 \item $h=0.7$ is a strong annual habit. The earlier Ramsey summary shows that habits matter mainly after unanticipated windfalls.
 \item Hours are fixed, there are no nominal rigidities, and the long-run real rate is pinned by the Ricardian Euler equation, so these results are about transitions.
 \end{itemize}
@@ -145,7 +146,7 @@ existing capital in their income produced extreme results after a jump, because 
 
 \begin{figure}[h]\centering
 \includegraphics[width=0.9\textwidth]{figures/fig_emb_mixed.pdf}
-\caption{Embodied progress, half jump and half S-curve.}
+\caption{Embodied progress, half jump and half 5-year S-curve.}
 \end{figure}
 
 \begin{figure}[h]\centering
