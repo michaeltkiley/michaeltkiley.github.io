@@ -107,3 +107,15 @@ production) vs embodied (P in accumulation). Labor-augmenting Z as the benchmark
 - Files: cases.py, ai_cases.tex/.pdf, figures fig_case12_exact, fig_case12_log, fig_case3,
   fig_case3_ces, and tables table_case*_*.tex, table_checks_cases.tex, results_cases.json.
 Next: wait for the user's direction (see the workflow rule above).
+
+## Status (session 2, fifth request): separate comparison note
+`ai_growth_note.tex`/`.pdf` and `growth_cases.py`. Baseline: CD K-L bundle, AI a CES
+substitute (e = 1.5), log utility, fixed hours. Linear accumulation vs. adjustment costs
+(c_j = 1/x_j, I/K-Q elasticity of one). Disembodied (Gamma_j) vs. embodied (P_j), for AI and for K.
+- Case 1: surprise level jumps (same 10% long-run Y). Case 2: permanent faster growth
+  (+0.5 pp g). AI growth uses the e = 1 variant, because e > 1 has no BGP with ongoing
+  AI progress. Case 3: S-curve centered on year 10, announced at t = 0.
+- Closed forms: BGP (Prop 1). Level shift: dlnW = gamma_Y (K) vs gamma_Y/[1+(1-a)(e-1)] (AI).
+- Key dynamics: embodied progress raises r more on impact. Ongoing or anticipated embodied
+  progress with linear accumulation first LOWERS r (firms wait for cheaper capital);
+  adjustment costs mostly remove that.

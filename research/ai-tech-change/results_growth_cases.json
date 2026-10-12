@@ -1,0 +1,302 @@
+{
+ "checks": {
+  "e=1.5 adj=False: closed-form BGP satisfies equilibrium": 1.3322676295501878e-15,
+  "e=1.5 adj=True: closed-form BGP satisfies equilibrium": 1.3322676295501878e-15,
+  "e=1.0 adj=False: closed-form BGP satisfies equilibrium": 7.771561172376096e-16,
+  "e=1.0 adj=True: closed-form BGP satisfies equilibrium": 7.771561172376096e-16,
+  "level e=1.5 K dis lin: Newton residual": 1.0644818360106e-12,
+  "level e=1.5 K dis lin: long-run ln Y gain vs target": 2.986513814029479e-12,
+  "level e=1.5 K dis AC: Newton residual": 2.7109425815297072e-12,
+  "level e=1.5 K dis AC: long-run ln Y gain vs target": 3.380205446101847e-08,
+  "level e=1.5 K emb lin: Newton residual": 4.884981308350689e-15,
+  "level e=1.5 K emb lin: long-run ln Y gain vs target": 1.3322676295501878e-15,
+  "level e=1.5 K emb AC: Newton residual": 8.454348332520567e-13,
+  "level e=1.5 K emb AC: long-run ln Y gain vs target": 1.128781648845889e-07,
+  "level e=1.5 A dis lin: Newton residual": 2.3092638912203256e-14,
+  "level e=1.5 A dis lin: long-run ln Y gain vs target": 5.35682609381638e-15,
+  "level e=1.5 A dis AC: Newton residual": 2.9976021664879227e-15,
+  "level e=1.5 A dis AC: long-run ln Y gain vs target": 3.464187572910227e-08,
+  "level e=1.5 A emb lin: Newton residual": 2.220446049250313e-15,
+  "level e=1.5 A emb lin: long-run ln Y gain vs target": 1.3322676295501878e-15,
+  "level e=1.5 A emb AC: Newton residual": 3.801403636316536e-13,
+  "level e=1.5 A emb AC: long-run ln Y gain vs target": 4.528773507594952e-08,
+  "growth e=1.5 K dis lin: Newton residual": 1.0436096431476471e-14,
+  "growth e=1.5 K dis lin: growth at T vs closed form": 2.220446049250313e-16,
+  "growth e=1.5 K dis AC: Newton residual": 1.4347412147230898e-12,
+  "growth e=1.5 K dis AC: growth at T vs closed form": 8.700995479671292e-11,
+  "growth e=1.5 K emb lin: Newton residual": 2.3314683517128287e-15,
+  "growth e=1.5 K emb lin: growth at T vs closed form": 0.0,
+  "growth e=1.5 K emb AC: Newton residual": 3.6193270602780103e-14,
+  "growth e=1.5 K emb AC: growth at T vs closed form": 1.545226169241687e-10,
+  "growth e=1.0 K dis lin: Newton residual": 1.0103029524088925e-14,
+  "growth e=1.0 K dis lin: growth at T vs closed form": 4.440892098500626e-16,
+  "growth e=1.0 K dis AC: Newton residual": 1.439293129124053e-12,
+  "growth e=1.0 K dis AC: growth at T vs closed form": 8.554201791355354e-11,
+  "growth e=1.0 K emb lin: Newton residual": 1.1102230246251565e-15,
+  "growth e=1.0 K emb lin: growth at T vs closed form": 2.220446049250313e-16,
+  "growth e=1.0 K emb AC: Newton residual": 3.674838211509268e-14,
+  "growth e=1.0 K emb AC: growth at T vs closed form": 1.5206835790593232e-10,
+  "growth e=1.0 A dis lin: Newton residual": 1.0325074129013956e-14,
+  "growth e=1.0 A dis lin: growth at T vs closed form": 2.220446049250313e-16,
+  "growth e=1.0 A dis AC: Newton residual": 1.439293129124053e-12,
+  "growth e=1.0 A dis AC: growth at T vs closed form": 8.554179586894861e-11,
+  "growth e=1.0 A emb lin: Newton residual": 1.198907639832214e-11,
+  "growth e=1.0 A emb lin: growth at T vs closed form": 1.1102230246251565e-15,
+  "growth e=1.0 A emb AC: Newton residual": 1.0624834345662748e-13,
+  "growth e=1.0 A emb AC: growth at T vs closed form": 1.1863043880566693e-10,
+  "scurve e=1.5 K dis lin: Newton residual": 9.36362098968857e-13,
+  "scurve e=1.5 K dis lin: long-run ln Y gain vs target": 2.5406898807034395e-12,
+  "scurve e=1.5 K dis AC: Newton residual": 3.931743819407529e-12,
+  "scurve e=1.5 K dis AC: long-run ln Y gain vs target": 6.344198498486886e-08,
+  "scurve e=1.5 K emb lin: Newton residual": 4.107825191113079e-15,
+  "scurve e=1.5 K emb lin: long-run ln Y gain vs target": 9.298117831235686e-16,
+  "scurve e=1.5 K emb AC: Newton residual": 2.9254376698872875e-13,
+  "scurve e=1.5 K emb AC: long-run ln Y gain vs target": 2.140025953945024e-07,
+  "scurve e=1.5 A dis lin: Newton residual": 1.899724821896598e-11,
+  "scurve e=1.5 A dis lin: long-run ln Y gain vs target": 8.832323761254202e-12,
+  "scurve e=1.5 A dis AC: Newton residual": 3.433520134876744e-11,
+  "scurve e=1.5 A dis AC: long-run ln Y gain vs target": 6.214827422135194e-08,
+  "scurve e=1.5 A emb lin: Newton residual": 1.7763568394002505e-15,
+  "scurve e=1.5 A emb lin: long-run ln Y gain vs target": 6.938893903907228e-17,
+  "scurve e=1.5 A emb AC: Newton residual": 2.1094237467877974e-15,
+  "scurve e=1.5 A emb AC: long-run ln Y gain vs target": 8.558643045664116e-08
+ },
+ "sizes": {
+  "level K": 0.2546099290780143,
+  "level A": 1.2227351344645805,
+  "growth e=1.5 K": 0.012590166739446795,
+  "growth e=1.5 A": null,
+  "growth e=1.0 K": 0.012590166739446795,
+  "growth e=1.0 A": 0.1208423396951619
+ },
+ "adj": {
+  "K": 12.345679012345679,
+  "A": 4.651162790697674
+ },
+ "summary": {
+  "level 1.5 K dis False": {
+   "r1": 0.08375103095552716,
+   "peak": 0.08375103095552716,
+   "tpeak": 0,
+   "lnW10": 0.09434513994918582,
+   "lnWT": 0.09999999999702434,
+   "labshT": 0.6964600000000075
+  },
+  "level 1.5 K dis True": {
+   "r1": 0.07688194000261883,
+   "peak": 0.07688194000261883,
+   "tpeak": 0,
+   "lnW10": 0.08351630863491981,
+   "lnWT": 0.09999996640861783,
+   "labshT": 0.6964600001467246
+  },
+  "level 1.5 K emb False": {
+   "r1": 0.10642848193474208,
+   "peak": 0.10642848193474208,
+   "tpeak": 0,
+   "lnW10": 0.08214669101101042,
+   "lnWT": 0.09999999999999908,
+   "labshT": 0.6964600000000001
+  },
+  "level 1.5 K emb True": {
+   "r1": 0.08136360795996023,
+   "peak": 0.08136360795996023,
+   "tpeak": 0,
+   "lnW10": 0.04419869538294063,
+   "lnWT": 0.09999988782538473,
+   "labshT": 0.696460000489994
+  },
+  "level 1.5 A dis False": {
+   "r1": 0.08574069423684394,
+   "peak": 0.08574069423684394,
+   "tpeak": 0,
+   "lnW10": 0.06610545327308932,
+   "lnWT": 0.07358351729212283,
+   "labshT": 0.6783028562619323
+  },
+  "level 1.5 A dis True": {
+   "r1": 0.08054958067381124,
+   "peak": 0.08054958067381124,
+   "tpeak": 0,
+   "lnW10": 0.05468206378793252,
+   "lnWT": 0.07358348305498394,
+   "labshT": 0.6783028565364627
+  },
+  "level 1.5 A emb False": {
+   "r1": 0.09025226560830335,
+   "peak": 0.09025226560830335,
+   "tpeak": 0,
+   "lnW10": 0.06323904946189045,
+   "lnWT": 0.07358351729212552,
+   "labshT": 0.6783028562619313
+  },
+  "level 1.5 A emb True": {
+   "r1": 0.08732673750864062,
+   "peak": 0.08732673750864062,
+   "tpeak": 0,
+   "lnW10": 0.04548519815068689,
+   "lnWT": 0.07358347253350453,
+   "labshT": 0.67830285662083
+  },
+  "growth 1.5 K dis False": {
+   "r1": 0.07579230913430046,
+   "peak": 0.08029556650246716,
+   "tpeak": 222,
+   "lnW10": 0.036743823553428104,
+   "lnWT": 1.2132055067917218,
+   "labshT": 0.6966644456372737
+  },
+  "growth 1.5 K dis True": {
+   "r1": 0.07938079935315323,
+   "peak": 0.08029556568742091,
+   "tpeak": 249,
+   "lnW10": 0.04239231624844136,
+   "lnWT": 1.213205520052503,
+   "labshT": 0.696664445579482
+  },
+  "growth 1.5 K emb False": {
+   "r1": 0.06495308804104782,
+   "peak": 0.08029556650246428,
+   "tpeak": 229,
+   "lnW10": 0.007629267328188332,
+   "lnWT": 1.1782898311404288,
+   "labshT": 0.6966644456372737
+  },
+  "growth 1.5 K emb True": {
+   "r1": 0.07759427461118773,
+   "peak": 0.08029556514551217,
+   "tpeak": 249,
+   "lnW10": 0.026823280021141833,
+   "lnWT": 1.1782898529603292,
+   "labshT": 0.6966644455371357
+  },
+  "growth 1.0 K dis False": {
+   "r1": 0.07579650380446346,
+   "peak": 0.08029556650246517,
+   "tpeak": 244,
+   "lnW10": 0.0367136333715979,
+   "lnWT": 1.213201481553633,
+   "labshT": 0.6964600000000001
+  },
+  "growth 1.0 K dis True": {
+   "r1": 0.07938380797354516,
+   "peak": 0.08029556569848739,
+   "tpeak": 249,
+   "lnW10": 0.0423458129246754,
+   "lnWT": 1.2132014946602754,
+   "labshT": 0.69646
+  },
+  "growth 1.0 K emb False": {
+   "r1": 0.06484809087445309,
+   "peak": 0.08029556650246383,
+   "tpeak": 213,
+   "lnW10": 0.007600089466638716,
+   "lnWT": 1.1782858059023376,
+   "labshT": 0.6964599999999999
+  },
+  "growth 1.0 K emb True": {
+   "r1": 0.07759530300939055,
+   "peak": 0.08029556516271263,
+   "tpeak": 249,
+   "lnW10": 0.026799301677988576,
+   "lnWT": 1.1782858274951595,
+   "labshT": 0.6964599999999999
+  },
+  "growth 1.0 A dis False": {
+   "r1": 0.07579650380446368,
+   "peak": 0.08029556650246539,
+   "tpeak": 212,
+   "lnW10": 0.0367136333715979,
+   "lnWT": 1.213201481553634,
+   "labshT": 0.6964600000000001
+  },
+  "growth 1.0 A dis True": {
+   "r1": 0.07938380797354538,
+   "peak": 0.08029556569848739,
+   "tpeak": 249,
+   "lnW10": 0.04234581292467604,
+   "lnWT": 1.213201494660279,
+   "labshT": 0.69646
+  },
+  "growth 1.0 A emb False": {
+   "r1": 0.07280998484946788,
+   "peak": 0.08029556650250336,
+   "tpeak": 241,
+   "lnW10": 0.0221251732191474,
+   "lnWT": 1.1967312609059029,
+   "labshT": 0.69646
+  },
+  "growth 1.0 A emb True": {
+   "r1": 0.07830991796994735,
+   "peak": 0.08029556538951965,
+   "tpeak": 249,
+   "lnW10": 0.03049816416868904,
+   "lnWT": 1.1967312790515807,
+   "labshT": 0.69646
+  },
+  "scurve 1.5 K dis False": {
+   "r1": 0.07529538490264187,
+   "peak": 0.08161077948302164,
+   "tpeak": 12,
+   "lnW10": 0.032851885043194834,
+   "lnWT": 0.09999999999746353,
+   "labshT": 0.6964600000000029
+  },
+  "scurve 1.5 K dis True": {
+   "r1": 0.07566764534219095,
+   "peak": 0.083421975297576,
+   "tpeak": 10,
+   "lnW10": 0.03653882222141894,
+   "lnWT": 0.09999993695342758,
+   "labshT": 0.6964600002753889
+  },
+  "scurve 1.5 K emb False": {
+   "r1": 0.07370860283237413,
+   "peak": 0.08569407855655409,
+   "tpeak": 17,
+   "lnW10": -0.005505794451585658,
+   "lnWT": 0.09999999999999908,
+   "labshT": 0.69646
+  },
+  "scurve 1.5 K emb True": {
+   "r1": 0.07502876850906337,
+   "peak": 0.07900424741147849,
+   "tpeak": 16,
+   "lnW10": 0.0064735323657916215,
+   "lnWT": 0.09999978733124497,
+   "labshT": 0.6964600009289662
+  },
+  "scurve 1.5 A dis False": {
+   "r1": 0.07510063089331953,
+   "peak": 0.0806634026052675,
+   "tpeak": 13,
+   "lnW10": 0.018894912816862643,
+   "lnWT": 0.07358351728545112,
+   "labshT": 0.6783028562633941
+  },
+  "scurve 1.5 A dis True": {
+   "r1": 0.07526742918540141,
+   "peak": 0.08146843953406702,
+   "tpeak": 11,
+   "lnW10": 0.020778814935349978,
+   "lnWT": 0.07358345587158333,
+   "labshT": 0.6783028567555531
+  },
+  "scurve 1.5 A emb False": {
+   "r1": 0.0747192605486715,
+   "peak": 0.08104154428699362,
+   "tpeak": 16,
+   "lnW10": 0.005575452039357147,
+   "lnWT": 0.07358351729212655,
+   "labshT": 0.6783028562619312
+  },
+  "scurve 1.5 A emb True": {
+   "r1": 0.07500345716465961,
+   "peak": 0.07991289091882203,
+   "tpeak": 15,
+   "lnW10": 0.00819020707128553,
+   "lnWT": 0.07358343270563164,
+   "labshT": 0.6783028569401903
+  }
+ }
+}

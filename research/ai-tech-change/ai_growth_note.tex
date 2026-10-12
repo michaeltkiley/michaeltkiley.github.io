@@ -1,0 +1,271 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,graphicx,caption}
+\usepackage[hidelinks]{hyperref}
+\usepackage{natbib}
+\newtheorem{proposition}{Proposition}
+\newcommand{\e}{\varepsilon}
+\setlength{\parskip}{4pt}
+
+\title{AI Capital versus Regular Capital:\\
+Real Interest Rates and Wages after Jumps, Faster Growth, and Anticipated Innovation}
+\author{Research note (draft)}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent This note compares the dynamics of the real interest rate and the real wage
+after technical progress in AI capital and after progress in regular capital. Regular
+capital and labor form a Cobb-Douglas bundle, and AI capital is a substitute for that
+bundle. Progress is either disembodied (in the production function) or embodied (a
+falling price of new capital in the accumulation equation). Three experiments are
+considered: (1) a surprise permanent jump in technology; (2) a surprise permanent
+increase in its growth rate; and (3) an S-curve innovation centered on year 10 and
+known at year 0. Each experiment is solved under standard linear capital accumulation
+and under the moderate adjustment costs of \citet{kiley2004}. Balanced growth paths
+are in closed form. For the same long-run output gain, AI progress raises the wage by
+$1/[1+(1-a)(\e-1)]$ of the output gain (74 percent here), while regular-capital progress
+raises it one-for-one. Embodied progress delays wage gains. With linear accumulation it
+initially \emph{lowers} the real interest rate when it is ongoing or anticipated,
+because firms wait for cheaper capital. Adjustment costs largely remove that effect.
+Permanently faster AI progress has no balanced growth path when AI is a substitute.
+\end{abstract}
+
+\section{Model}
+
+Notation follows \citet{kiley2000}. Production nests a Cobb-Douglas bundle of regular
+capital and labor inside a CES aggregate with AI capital:
+\begin{equation}
+X=(\Gamma_KK)^a(ZN)^{1-a},\qquad
+Y=\Big[\omega^{1/\e}X^{\frac{\e-1}{\e}}+(1-\omega)^{1/\e}(\Gamma_AA)^{\frac{\e-1}{\e}}\Big]^{\frac{\e}{\e-1}},
+\qquad \e=1.5 .
+\end{equation}
+AI substitutes for the bundle, and therefore for both labor and regular capital. Capital $j\in\{K,A\}$ is measured
+in efficiency units, and a new unit costs $P_j$ in output:
+\begin{equation}
+K_j'=(1-d_j)K_j+I_j/P_j .
+\end{equation}
+\emph{Disembodied} progress raises $\Gamma_j$, and with it the productivity of the installed stock.
+\emph{Embodied} progress lowers $P_j$, which makes new capital cheaper but leaves existing units unchanged.
+Two accumulation technologies are compared:
+\begin{itemize}
+\item \emph{Linear}: no adjustment costs.
+\item \emph{Adjustment costs}: $P_j\,\tfrac{c_j}{2}(i_j-x_j)^2K_j$, with $i_j=I_j/(P_jK_j)$. The
+cost vanishes at the balanced-growth investment rate $x_j$, and $c_j=1/x_j$, so that the
+elasticity of $i_j$ with respect to $Q_j/P_j$ is one (the paper's ``moderate'' case).
+\end{itemize}
+Utility is logarithmic and hours are fixed. Calibration: $a=0.282$, $d_K=0.066$,
+$d_A=0.20$, trend growth $g_Z=1.5$ percent, initial $r=7.5$ percent and an initial AI
+income share of 3 percent. Because $\e>1$, the AI share rises as AI becomes cheaper.
+
+\begin{proposition}[Balanced growth path]\label{prop:bgp}
+Let $\Gamma_j$ grow at $\gamma_{\Gamma j}$ and $P_j$ fall at $\gamma_{qj}$, and write
+$G_j=(1+\gamma_{\Gamma j})(1+\gamma_{qj})$. A balanced growth path exists if $\e=1$, or if
+$\e\neq1$ and $G_A=1$. Output grows at
+\begin{gather*}
+\ln(1+g)=\ln(1+g_Z)+\frac{a\omega\ln G_K+(1-\omega)\ln G_A}{(1-a)\,\omega}\quad(\e=1),\\
+\ln(1+g)=\ln(1+g_Z)+\frac{a}{1-a}\ln G_K\quad(\e\neq1).
+\end{gather*}
+With $1+r=(1+g)/B$, user costs $u_j=(1+r)(1+\gamma_{qj})-(1-d_j)$ and effective costs
+$\lambda_j=P_ju_j/\Gamma_j$:
+\begin{gather*}
+s_A=(1-\omega)\lambda_A^{1-\e},\qquad \text{labor share}=(1-a)(1-s_A),\qquad
+P_X^{1-\e}=\frac{1-s_A}{\omega},\\
+\ln\frac WZ=\frac{1}{1-a}\ln P_X-\frac{a}{1-a}\ln\lambda_K+\text{const},\qquad
+\ln\frac YZ=\ln\frac WZ-\ln(1-s_A)+\text{const}.
+\end{gather*}
+Adjustment costs are zero on the path, $Q_j=P_j$, and $P_KK/Y=a(1-s_A)/u_K$, $P_AA/Y=s_A/u_A$.
+\end{proposition}
+
+The embodied user cost includes an obsolescence term: $u_j\approx r+d_j+\gamma_{qj}$.
+
+\begin{proposition}[Level shifts with the same long-run output gain $\gamma_Y$]\label{prop:level}
+Disembodied and embodied progress have the same long-run effects when
+$\ln\Gamma_j=-\ln P_j$. The long-run interest rate is unchanged.
+\begin{enumerate}
+\item \emph{Regular capital}: the AI share and labor share are unchanged, so
+$\Delta\ln W=\gamma_Y$. The required shock is $\ln(\Gamma_K/P_K)=\frac{1-a}{a}\gamma_Y$.
+\item \emph{AI capital}: only $s_A$ moves, and
+\begin{equation*}
+\Delta\ln W=\frac{\gamma_Y}{1+(1-a)(\e-1)},\qquad
+\Delta\ln(\text{labor share})=\Delta\ln(1-s_A)=-\frac{(1-a)(\e-1)}{1+(1-a)(\e-1)}\,\gamma_Y .
+\end{equation*}
+\end{enumerate}
+\end{proposition}
+\emph{Proof.} From Proposition~\ref{prop:bgp}, $\ln(Y/Z)=\frac{1}{(1-a)(1-\e)}\ln(1-s_A)-\ln(1-s_A)-\frac{a}{1-a}\ln\lambda_K+$const.
+Regular-capital progress moves only $\lambda_K$. AI progress moves only $s_A$, and
+$\ln W=\ln Y+\ln(1-s_A)$. \qed
+
+With $\gamma_Y=10$ percent, regular-capital progress raises the wage 10 percent and AI
+progress raises it 7.4 percent. The AI share rises from 3.0 to 5.5 percent, and the labor
+share falls from 69.6 to 67.8 percent. Because AI is small, the same output gain requires
+$\Gamma_A/P_A$ to rise 3.4-fold, against a 29 percent rise in $\Gamma_K/P_K$.
+
+\begin{proposition}[Faster growth]\label{prop:growth}
+\emph{Regular capital}: a permanent increase in $\gamma_{\Gamma K}$ or $\gamma_{qK}$ moves the
+economy to a new balanced growth path with $\Delta\ln(1+g)=\frac{a}{1-a}\ln G_K$ and
+$\Delta\ln(1+r)=\Delta\ln(1+g)$, for any $\e$. The wage grows at the new rate $g$, and its
+level relative to $Z$ falls because $\lambda_K$ rises. The fall is larger for embodied
+progress, through the obsolescence term in $u_K$.
+\emph{AI capital with $\e>1$}: there is no balanced growth path. $\lambda_A\to0$, the AI
+share $\to1$, the labor share $\to0$, and growth and the interest rate rise without
+bound. This is the explosive limit derived in the companion note.
+\emph{AI capital with $\e=1$}: there is a balanced growth path with
+$\Delta\ln(1+g)=\frac{1-\omega}{(1-a)\omega}\ln G_A$. Delivering the same growth increase as
+regular-capital progress then requires AI progress about $(1-a)\omega/(1-\omega)\approx23$
+times as fast as the increase in output growth.
+\end{proposition}
+
+Two equivalences organize the results. With a Cobb-Douglas bundle, disembodied
+regular-capital progress is the same as labor-augmenting progress. With $\e=1$,
+disembodied progress in either capital is the same as Hicks-neutral TFP growth. Its
+paths are therefore identical whichever capital it attaches to. In both cases only
+\emph{embodied} progress distinguishes one kind of capital from another.
+
+\section{Experiments}
+
+Every experiment is announced, or occurs, at $t=0$ with the economy on its initial
+balanced growth path. Each is solved as a nonlinear perfect-foresight problem
+(Newton's method, 250 years, residuals below $10^{-10}$). Wages are log deviations from
+the pre-shock path ($W/Z$ on the initial trend). The labor share is relative to gross
+output.
+
+\subsection*{Case 1: surprise permanent jumps}
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{figures/fig_g_case1.pdf}
+\caption{Case 1. Solid: linear accumulation. Dashed: adjustment costs.}\label{fig:c1}
+\end{figure}
+
+\begin{table}[h]\centering\scriptsize
+\caption{Case 1: surprise permanent jump, same 10\% long-run output gain. The shock is in log points; $r_1$ is the rate between years 0 and 1.}\label{tab:c1}
+\input{table_g_case1.tex}
+\end{table}
+
+\begin{enumerate}
+\item \emph{Interest rates jump on impact and decay.} Embodied progress raises $r$ more than
+disembodied progress, because it requires an investment boom before any output gain.
+Under linear accumulation, a jump in regular-capital technology raises $r_1$ to 10.6
+percent (embodied) or 8.4 percent (disembodied). For AI the figures are 9.0 and 8.6
+percent. Adjustment costs damp the regular-capital response (8.1 and 7.7 percent) more
+than the AI response (8.7 and 8.05 percent), because AI's adjustment cost per unit of
+investment is smaller.
+\item \emph{Wages.} Disembodied progress raises wages on impact, by 7.0 percent for regular
+capital and 3.0 percent for AI. Embodied progress raises them only as new capital is
+installed. With adjustment costs, after ten years wages are still 5.6 percentage points
+short of their long-run gain for regular capital, and 2.9 points short for AI.
+\item \emph{Labor share.} It is unchanged for regular capital. For AI it falls by 1.8
+points, at once under disembodied progress and over 10--20 years under embodied
+progress with adjustment costs.
+\end{enumerate}
+
+\subsection*{Case 2: faster growth}
+
+Each shock raises long-run output growth by 0.5 percentage points, from 1.5 to 2.0
+percent. AI growth needs $\e=1$ (Proposition~\ref{prop:growth}), so the figure and
+table use the $\e=1$ variant for both capital stocks. Regular-capital results in the
+$\e=1.5$ baseline are nearly identical; for example, $r_1$ under embodied progress with linear accumulation is 6.50 vs 6.48
+percent.
+
+\begin{table}[h]\centering\scriptsize
+\caption{Balanced growth paths (Proposition~\ref{prop:bgp}). $\gamma$ is the annual rate of technical progress; $W/Z$ is relative to the initial path at the same date-0 technology levels. Rates in percent.}\label{tab:bgp}
+\input{table_g_bgp.tex}
+\end{table}
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{figures/fig_g_case2.pdf}
+\caption{Case 2 ($\e=1$). The labor share is constant by construction when $\e=1$.}\label{fig:c2}
+\end{figure}
+
+\begin{table}[h]\centering\scriptsize
+\caption{Case 2: permanent increase in the growth of technology from $t=0$ ($\e=1$).}\label{tab:c2}
+\input{table_g_case2.tex}
+\end{table}
+
+\begin{enumerate}
+\item \emph{Long run.} The interest rate rises one-for-one with growth, from 7.50 to 8.03
+percent, for every kind of progress. The wage grows faster, but its level relative to
+the old trend shifts down: by 1.5 percent for disembodied progress, 4.9 percent for
+embodied regular-capital progress, and 3.1 percent for embodied AI progress.
+The embodied shifts are larger because of obsolescence.
+\item \emph{Disembodied progress} raises $r$ at once and part of the way, to 7.6 percent with
+linear accumulation or 7.9 percent with adjustment costs. The paths are identical for AI
+and regular capital (TFP equivalence).
+\item \emph{Embodied progress first lowers $r$.} With linear accumulation, $r_1$ falls to 6.5
+percent for regular capital and 7.3 percent for AI. Capital keeps getting cheaper, so
+firms postpone investment, consumption rises at once, and expected consumption growth
+falls. The real wage dips slightly in the first few years. Adjustment costs make
+postponing costly and largely remove the effect ($r_1$ of 7.8 percent). The AI effect is
+smaller because AI is a small share of capital spending.
+\end{enumerate}
+
+\subsection*{Case 3: anticipated S-curve innovation}
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{figures/fig_g_case3.pdf}
+\caption{Case 3: S-curve centered on year 10, known at $t=0$, same 10\% long-run output gain.}\label{fig:c3}
+\end{figure}
+
+\begin{table}[h]\centering\scriptsize
+\caption{Case 3: anticipated S-curve. Columns as in Table~\ref{tab:c1}.}\label{tab:c3}
+\input{table_g_case3.tex}
+\end{table}
+
+\begin{enumerate}
+\item \emph{Disembodied progress} raises $r$ gradually ahead of arrival. It peaks at 8.2--8.3
+percent for regular capital and 8.1--8.15 percent for AI, around years 10--13. The wage
+rises with the S-curve.
+\item \emph{Embodied regular-capital progress with linear accumulation} produces a
+two-phase response. Before the innovation arrives, firms let capital run down while
+they wait for cheaper capital. The real rate \emph{falls} to about 6.8 percent around
+year 8 and the wage dips by about 1 percent. Then an investment boom pushes $r$ to 8.6
+percent in year 17. With adjustment costs, investment is spread out and $r$ rises
+smoothly to 7.9 percent.
+\item \emph{Embodied AI progress} shows the same pattern in muted form, with a small dip
+before arrival and a peak of 8.0--8.1 percent around years 15--16.
+\item \emph{AI versus regular capital.} For the same output gain, AI progress produces
+similar or slightly smaller interest-rate peaks. It produces smaller wage gains (7.4 vs 10
+percent) and a 1.8-point fall in the labor share that tracks the S-curve.
+\end{enumerate}
+
+\section{Summary}
+
+\begin{itemize}
+\item \emph{Wages.} For the same output gain, AI progress raises the wage by a fraction
+$1/[1+(1-a)(\e-1)]$ of the output gain, and regular-capital progress raises it
+one-for-one. The difference shows up as a lower labor share.
+\item \emph{Interest rates after jumps and announcements.} Embodied progress, whether in
+AI or regular capital, requires an investment boom and raises $r$ more on impact than
+disembodied progress. Adjustment costs damp both responses.
+\item \emph{Ongoing or anticipated embodied progress} can lower $r$ at first, because firms
+wait for cheaper capital. The effect is strong with linear accumulation and largely
+absent with adjustment costs. It is weaker for AI than for regular capital as long as
+AI is a small share of capital.
+\item \emph{Faster growth} raises $r$ one-for-one in the long run for every kind of
+progress. With AI a substitute, permanently faster AI progress has no steady state.
+The AI share and the interest rate keep rising.
+\end{itemize}
+
+\appendix
+\section{Verification}
+\texttt{growth\_cases.py} solves every experiment. It checks that the closed-form
+balanced growth path satisfies the equilibrium conditions, that long-run output gains
+match the target, and that the simulated growth rate converges to the closed form
+in case 2.
+
+\begin{table}[h]\centering\tiny
+\input{table_g_checks.tex}
+\end{table}
+
+\begin{thebibliography}{9}
+\bibitem[Kiley(2000)]{kiley2000}
+Kiley, M.~T. (2000). ``Stock Prices and Fundamentals in a Production Economy.''
+FEDS Working Paper 2000-05, Federal Reserve Board.
+\bibitem[Kiley(2004)]{kiley2004}
+Kiley, M.~T. (2004). ``Stock Prices and Fundamentals: A Macroeconomic Perspective.''
+\emph{Journal of Business} 77(4): 909--936.
+\end{thebibliography}
+\end{document}
