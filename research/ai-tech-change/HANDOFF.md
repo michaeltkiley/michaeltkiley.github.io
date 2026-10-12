@@ -125,4 +125,4 @@ The user dropped the faster-growth case (no BGP with e > 1) and linear accumulat
 `ai_growth_note`/`growth_cases.py` were renamed to `ai_capital_note.tex/.pdf` and
 `capital_cases.py`. Now: adjustment costs only (c_j = 1/x_j), same elasticities,
 same 10% long-run output gain; summary of r, W and labor share in `table_capital_cases.tex`
-and `fig_capital_cases`.
+and `fig_capital_cases`. Added: half-jump/half-S-curve case ("mixed") and output (net of adjustment costs).

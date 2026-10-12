@@ -14,6 +14,7 @@ Experiments, each for AI and regular capital, embodied and disembodied, every sh
 sized for the same 10% long-run output gain:
   jump     surprise permanent level jump at t = 0
   S-curve  logistic level shift centered on year 10, announced at t = 0
+  mixed    half of the shift as a surprise jump at t = 0, half as the S-curve
 
 (A permanent increase in the growth rate of AI technology is excluded: with e > 1 it
 has no balanced growth path.)  The balanced growth path is in closed form in bgp();
@@ -138,7 +139,8 @@ def tech(e, case, cap, typ, T, p=BASE):
     path = {"GK": np.ones(T + 1), "PK": np.ones(T + 1),
             "GA": np.full(T + 1, p["GammaA0"]), "PA": np.ones(T + 1)}
     size = level_size(e, cap)
-    S = np.ones(T + 1) if case == "jump" else scurve(T)
+    S = {"jump": np.ones(T + 1), "scurve": scurve(T),
+         "mixed": 0.5 + 0.5 * scurve(T)}[case]          # mixed: half at t = 0, half S-curve
     if typ == "dis":
         path["G" + cap] = path["G" + cap] * np.exp(size * S)
     else:
@@ -251,7 +253,7 @@ def run(T=250):
     M = Model(e, path, x, True, {})
     checks["closed-form BGP satisfies equilibrium"] = float(
         np.max(np.abs(M.resid(np.concatenate([np.full(60, M.term[k]) for k in range(2)])))))
-    for case in ("jump", "scurve"):
+    for case in CASES:
         for cap in CAPS:
             for typ in ("dis", "emb"):
                 path, x, size, gr = tech(e, case, cap, typ, T)
@@ -269,13 +271,17 @@ def run(T=250):
     a = BASE["a"]
     want = {"K": BASE["target_level"], "A": BASE["target_level"] / (1 + (1 - a) * (e - 1))}
     for cap in CAPS:
-        for case in ("jump", "scurve"):
+        for case in CASES:
             for typ in ("dis", "emb"):
                 checks[f"{case} {cap} {typ}: long-run ln W vs closed form"] = abs(
                     out[(case, cap, typ)]["lnW"][-1] - want[cap])
     return out, checks
 
 
+CASES = ("jump", "mixed", "scurve")
+TITLES = {"jump": "Surprise permanent jump at t = 0",
+          "mixed": "Half jump at t = 0, half S-curve (year 10)",
+          "scurve": "S-curve centered on year 10, announced at t = 0"}
 LINES = [(("K", "dis"), "#1f5f9e", "-", "regular capital, disembodied"),
          (("K", "emb"), "#1f5f9e", "--", "regular capital, embodied"),
          (("A", "dis"), "#c0512a", "-", "AI, disembodied"),
@@ -284,47 +290,53 @@ LINES = [(("K", "dis"), "#1f5f9e", "-", "regular capital, disembodied"),
 
 def figure(out, H=40):
     t = np.arange(H)
-    fig, axes = plt.subplots(3, 2, figsize=(10, 8.4), sharey="row")
-    for col, case in enumerate(("jump", "scurve")):
+    rows = [("r", "real interest rate (pct.)"), ("lnY", "output, log dev. from\npre-shock path (pct.)"),
+            ("lnW", "real wage, log dev. from\npre-shock path (pct.)"), ("labsh", "labor share (pct.)")]
+    fig, axes = plt.subplots(4, 3, figsize=(13, 10.5), sharey="row")
+    for col, case in enumerate(CASES):
         for (cap, typ), c, ls, lab in LINES:
             res = out[(case, cap, typ)]
-            axes[0, col].plot(t, 100 * res["r"][:H], color=c, ls=ls, lw=2, label=lab)
-            axes[1, col].plot(t, 100 * res["lnW"][:H], color=c, ls=ls, lw=2)
-            axes[2, col].plot(t, 100 * res["labsh"][:H], color=c, ls=ls, lw=2)
+            for row, (var, _) in enumerate(rows):
+                axes[row, col].plot(t, 100 * res[var][:H], color=c, ls=ls, lw=2, label=lab)
         axes[0, col].axhline(100 * BASE["r0"], color="0.6", lw=1, ls=":")
         axes[1, col].axhline(100 * BASE["target_level"], color="0.6", lw=1, ls=":")
-        axes[0, col].set_title("Surprise permanent jump at t = 0" if case == "jump"
-                               else "S-curve centered on year 10, announced at t = 0", fontsize=10)
-        axes[2, col].set_xlabel("years")
+        axes[2, col].axhline(100 * BASE["target_level"], color="0.6", lw=1, ls=":")
+        axes[0, col].set_title(TITLES[case], fontsize=10)
+        axes[-1, col].set_xlabel("years")
         for ax in axes[:, col]:
             ax.grid(alpha=0.25)
-    axes[0, 0].set_ylabel("real interest rate (pct.)")
-    axes[1, 0].set_ylabel("real wage, log dev. from\npre-shock path (pct.)")
-    axes[2, 0].set_ylabel("labor share (pct.)")
+    for row, (_, lab) in enumerate(rows):
+        axes[row, 0].set_ylabel(lab)
     axes[0, 0].legend(fontsize=8, frameon=False)
     fig.suptitle("Same 10% long-run output gain; Cobb-Douglas K-L bundle, AI substitute (e = 1.5); "
-                 "adjustment costs", fontsize=10)
+                 "adjustment costs", fontsize=11)
     fig.tight_layout()
     for ext in ("pdf", "png"):
         fig.savefig(os.path.join(FIG, f"fig_capital_cases.{ext}"), dpi=150)
     plt.close(fig)
 
 
+def _f(x):
+    return f"{round(x, 1) + 0.0:.1f}"
+
+
 def summary_table(out):
-    L = [r"\begin{tabular}{llccccccccc}\toprule",
-         r" & & \multicolumn{3}{c}{real interest rate (pct.)} & \multicolumn{4}{c}{real wage, $\ln W$ (pct.)} & \multicolumn{2}{c}{labor share (pct.)}\\",
-         r"\cmidrule(lr){3-5}\cmidrule(lr){6-9}\cmidrule(lr){10-11}",
-         r" & & $r_1$ & peak & year & $t{=}0$ & $t{=}10$ & $t{=}20$ & long run & $t{=}10$ & long run\\\midrule"]
+    L = [r"\begin{tabular}{llcccccccccc}\toprule",
+         r" & & \multicolumn{3}{c}{real rate (pct.)} & \multicolumn{3}{c}{output, $\ln Y$ (pct.)} & \multicolumn{3}{c}{real wage, $\ln W$ (pct.)} & labor share\\",
+         r"\cmidrule(lr){3-5}\cmidrule(lr){6-8}\cmidrule(lr){9-11}\cmidrule(lr){12-12}",
+         r" & & $r_1$ & peak & year & $t{=}0$ & $t{=}10$ & $t{=}20$ & $t{=}0$ & $t{=}10$ & $t{=}20$ & $t{=}10$ (pct.)\\\midrule"]
     names = {("K", "dis"): "Regular, disemb.", ("K", "emb"): "Regular, emb.",
              ("A", "dis"): "AI, disemb.", ("A", "emb"): "AI, emb."}
-    for case, cname in (("jump", "Jump"), ("scurve", "S-curve")):
+    cnames = {"jump": "Jump", "mixed": "Half/half", "scurve": "S-curve"}
+    for case in CASES:
         for i, ((cap, typ), _, _, _) in enumerate(LINES):
             res = out[(case, cap, typ)]
-            L.append(f"{cname if i == 0 else ''} & {names[(cap, typ)]} & {100*res['r'][0]:.2f} & "
+            L.append(f"{cnames[case] if i == 0 else ''} & {names[(cap, typ)]} & {100*res['r'][0]:.2f} & "
                      f"{100*res['r'].max():.2f} & {int(np.argmax(res['r']))} & "
-                     f"{100*res['lnW'][0]:.1f} & {100*res['lnW'][10]:.1f} & {100*res['lnW'][20]:.1f} & "
-                     f"{100*res['lnW'][-1]:.1f} & {100*res['labsh'][10]:.1f} & {100*res['labsh'][-1]:.1f}\\\\")
-        if case == "jump":
+                     f"{_f(100*res['lnY'][0])} & {_f(100*res['lnY'][10])} & {_f(100*res['lnY'][20])} & "
+                     f"{_f(100*res['lnW'][0])} & {_f(100*res['lnW'][10])} & {_f(100*res['lnW'][20])} & "
+                     f"{100*res['labsh'][10]:.1f}\\\\")
+        if case != CASES[-1]:
             L.append(r"\midrule")
     L.append(r"\bottomrule\end{tabular}")
     with open(os.path.join(HERE, "table_capital_cases.tex"), "w") as f:
@@ -347,6 +359,7 @@ def main():
                        summary={" ".join(k): dict(r1=float(v["r"][0]), peak=float(v["r"].max()),
                                                   tpeak=int(np.argmax(v["r"])),
                                                   lnW=[float(v["lnW"][i]) for i in (0, 5, 10, 20, 30)],
+                                                  lnY=[float(v["lnY"][i]) for i in (0, 5, 10, 20, 30)],
                                                   lnWT=float(v["lnW"][-1]),
                                                   labsh=[float(v["labsh"][i]) for i in (0, 5, 10, 20)],
                                                   labshT=float(v["labsh"][-1]),

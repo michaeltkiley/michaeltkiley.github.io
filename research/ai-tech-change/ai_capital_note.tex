@@ -9,7 +9,7 @@
 \setlength{\parskip}{4pt}
 
 \title{AI Capital versus Regular Capital:\\
-Real Interest Rates, Wages and the Labor Share after a Jump or an S-Curve}
+Output, Real Interest Rates, Wages and the Labor Share\\after a Jump, an S-Curve, or Both}
 \author{Research note (draft)}
 \date{October 2026}
 
@@ -17,20 +17,23 @@ Real Interest Rates, Wages and the Labor Share after a Jump or an S-Curve}
 \maketitle
 
 \begin{abstract}
-\noindent This note compares the response of the real interest rate, the real wage and
-the labor share to technical progress in AI capital and in regular capital. Regular
-capital and labor form a Cobb-Douglas bundle, and AI capital substitutes for that
-bundle ($\e=1.5$). Progress is either disembodied (in the production function) or
+\noindent This note compares how output, the real interest rate, the real wage and the
+labor share respond to technical progress in AI capital and in regular capital.
+Regular capital and labor form a Cobb-Douglas bundle, and AI capital substitutes for
+that bundle ($\e=1.5$). Progress is either disembodied (in the production function) or
 embodied (a lower price of new capital in the accumulation equation). Both capital
-stocks face the same moderate adjustment costs. Two experiments are considered, a surprise permanent jump and an S-curve
-centered on year 10 and known at year 0. Elasticities are the same in every experiment,
-and every shock raises long-run output by the same 10 percent. In the long run, which
-is in closed form, AI progress raises the wage by 7.4 percent and lowers the labor share
-by 1.8 points. Regular-capital progress raises the wage by the full 10 percent and leaves the labor share unchanged.
-In the short run, the interest rate rises most for embodied AI progress after a jump, and
-most for disembodied regular-capital progress along an S-curve. Wage gains arrive
-fastest under disembodied regular-capital progress and slowest under embodied
-progress of either kind.
+stocks face the same moderate adjustment costs. Three timing patterns are compared: a
+surprise permanent jump; an S-curve centered on year 10 and known at year 0; and a mix
+in which half the improvement arrives as a jump and half along the S-curve.
+Elasticities are the same throughout, and every shock raises long-run output by the
+same 10 percent. In the long run, which is in closed form, AI progress raises the wage by 7.4
+percent and lowers the labor share by 1.8 points. Regular-capital progress raises the
+wage by the full 10 percent and leaves the labor share unchanged. In the short run, the
+interest rate rises most for embodied AI progress after a jump, and most for
+disembodied regular-capital progress along an S-curve. Output and wage gains arrive
+fastest under disembodied progress. Output converges faster for AI than for regular
+capital, but AI wages lag AI output. The mixed case lies close to the average of the
+two pure cases.
 \end{abstract}
 
 \section{Model}
@@ -87,11 +90,13 @@ run, AI progress raises the wage 7.4 percent and lowers the labor share from 69.
 
 \section{Results}
 
-Both experiments start on the initial balanced growth path. In the \emph{jump}, technology
-rises permanently and unexpectedly at $t=0$. In the \emph{S-curve}, a logistic rise
-centered on year 10 is announced at $t=0$. Each is solved as a nonlinear
-perfect-foresight problem. Wages are log deviations from the pre-shock path, and the
-labor share is relative to gross output.
+All experiments start on the initial balanced growth path. In the \emph{jump},
+technology rises permanently and unexpectedly at $t=0$. In the \emph{S-curve}, a logistic
+rise centered on year 10 is announced at $t=0$. In the \emph{half/half} case, half the
+log improvement arrives as a jump at $t=0$ and the other half along the same S-curve,
+also announced at $t=0$. Each is solved as a nonlinear perfect-foresight problem.
+Output (net of adjustment costs) and wages are log deviations from the pre-shock path,
+and the labor share is relative to gross output.
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{figures/fig_capital_cases.pdf}
@@ -102,6 +107,21 @@ labor share is relative to gross output.
 \caption{Summary. $r_1$ is the real rate between years 0 and 1. All shocks raise long-run output by 10\%.}\label{tab:main}
 \input{table_capital_cases.tex}
 \end{table}
+
+\subsection*{Output}
+\begin{itemize}
+\item \emph{Jump.} Disembodied progress raises output on impact, by 6.9 percent for regular capital and 4.1 for AI.
+Embodied progress cannot raise output until new capital is installed, and net output
+dips on impact (by 0.4 percent for regular capital and 1.5 for AI) because the
+investment boom incurs adjustment costs. AI output then catches up quickly. AI capital
+depreciates fast and has low adjustment costs per unit of investment, so after 10 years
+output is up 7.8 (AI, disembodied) and 6.6 (AI, embodied), against 8.3 and 4.3 for
+regular capital.
+\item \emph{S-curve.} Output tracks the innovation. At year 20 it is up 8.1 (regular,
+disembodied), 7.8 (AI, disembodied), 5.8 (AI, embodied) and 3.8 percent (regular,
+embodied). Embodied regular-capital progress is the slowest to raise output in every timing pattern.
+\item \emph{Half/half.} Output jumps by about half the pure-jump amount and then follows the S-curve.
+\end{itemize}
 
 \subsection*{Real interest rate}
 \begin{itemize}
@@ -119,6 +139,11 @@ rises ahead of the innovation and peaks with it (year 10--11): 8.3 percent for r
 capital and 8.15 for AI. Under embodied progress it peaks later (years 15--16) and lower,
 at 7.9 for regular capital and 8.0 for AI, but the response lasts longer. The 40-year
 cumulative effects are similar, 7.4--9.4 percentage points.
+\item \emph{Half/half.} The rate has two humps, an impact response from the jump and a
+second peak as the S-curve arrives (years 10--14). For disembodied progress the second
+peak is larger (7.97 regular, 7.94 AI). For embodied AI the impact response is larger (8.00).
+Each path is close to the average of the pure jump and pure S-curve paths. For example,
+$r_1=7.63$ for disembodied regular capital, against an average of 7.63.
 \end{itemize}
 
 \subsection*{Real wage}
@@ -131,6 +156,12 @@ wage is up 8.4 (regular, disembodied), 5.5 (AI, disembodied), 4.5 (AI, embodied)
 \item \emph{S-curve.} The wage follows the innovation, and much more slowly when progress is
 embodied. At year 10 it is up 3.7 percent (regular, disembodied), 2.1 (AI, disembodied), 0.8 (AI,
 embodied) and 0.6 (regular, embodied). At year 20 the figures are 8.1, 5.4, 4.1 and 4.0.
+\item \emph{Half/half.} Wages jump by half the disembodied pure-jump amount (3.5 regular,
+1.4 AI). By year 10 they are up 6.0 (regular, disembodied), 3.6 (AI, disembodied), 2.5 (AI,
+embodied) and 2.5 percent (regular, embodied).
+\item \emph{AI wages lag AI output.} Because the AI share is rising, wages grow more slowly than
+output under AI progress. At year 10 of the jump, AI output is up 7.8 percent but wages only
+5.5 percent. Under regular-capital progress the two move together.
 \end{itemize}
 
 \subsection*{Labor share}
@@ -139,7 +170,8 @@ embodied) and 0.6 (regular, embodied). At year 20 the figures are 8.1, 5.4, 4.1 
 \item \emph{AI}: falls 1.8 points to 67.8 percent. After a disembodied jump, about 60 percent of
 the fall happens on impact. After an embodied jump it happens as AI capital is installed
 (68.2 percent at year 10). Along the S-curve it tracks the innovation, at 68.9 percent
-(disembodied) or 69.4 percent (embodied) in year 10.
+(disembodied) or 69.4 percent (embodied) in year 10. In the half/half case, half
+the disembodied fall happens on impact (to 69.2 percent).
 \end{itemize}
 
 \section{Summary}
@@ -149,18 +181,24 @@ With the same elasticities and the same long-run output gain:
 progress and lowers the labor share. Regular-capital progress leaves the labor share
 unchanged. These long-run results are in closed form and do not depend on whether
 progress is embodied or disembodied.
+\item Output gains arrive fastest under disembodied progress. Under embodied AI progress
+they arrive faster than under embodied regular-capital progress, because AI capital
+turns over quickly. Embodied jumps briefly lower net output while the investment boom
+absorbs resources.
 \item The interest rate rises temporarily in every case. A surprise jump raises it most
 when progress is embodied and in AI. An anticipated S-curve raises it most, and soonest,
 when progress is disembodied. Embodied progress produces a later, smaller but more
 persistent rise.
-\item Embodied progress delays wage gains by roughly five to ten years compared with
-disembodied progress. Embodied AI and embodied regular-capital progress produce similar wage paths in the first decade.
+\item AI wages lag AI output, and embodied progress delays wage gains by roughly five to ten
+years compared with disembodied progress.
+\item A mix of a jump and an S-curve gives approximately the average of the two pure
+responses, so the timing patterns can be combined roughly linearly.
 \end{enumerate}
 
 \appendix
 \section{Verification}
 \texttt{capital\_cases.py} produces all results. It checks that the closed-form balanced
-growth path satisfies the equilibrium conditions, that every experiment converges to
+growth path satisfies the equilibrium conditions, that every experiment (jump, half/half, S-curve) converges to
 the 10 percent output gain, and that long-run wages match Proposition~\ref{prop:lr}.
 Newton residuals are below $10^{-10}$.
 
