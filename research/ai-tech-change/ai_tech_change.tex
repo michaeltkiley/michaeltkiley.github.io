@@ -22,21 +22,28 @@ blueprint for analyzing AI-driven technical change. The blueprint has one capita
 stock and two pairings of production and capital-accumulation technologies, each with a
 closed form. (i) CES production with an investment adjustment cost that vanishes on the
 balanced growth path gives $Q=1$ and closed forms for the interest rate, the wage, the
-labor share and value/output on that path. (ii) Cobb-Douglas production with a
-Cobb-Douglas accumulation function, $K'=K^{1-\delta}I^{\delta}$, gives an exact closed form for
-the \emph{entire} equilibrium path: saving rates and hours are constant, value/output
-is constant, and the real interest rate and real wage follow from a log-linear law of
-motion. I add AI capital as a third input. It combines with the capital-labor bundle
+labor share and value/output on that path. (ii) CES production with a CES
+capital-accumulation function of the same elasticity,
+$K'^{\rho}=\bar A^{\rho}[(1-\delta)K^{\rho}+\delta I^{\rho}]$, gives an exact closed form for the
+\emph{entire} equilibrium path when the intertemporal elasticity of substitution equals
+the production elasticity. The saving rate is then constant,
+$s=[B\bar A^\rho\delta a_K/(1-B\bar A^\rho(1-\delta))]^{\e}$, and capital follows a linear law
+of motion in $K^\rho$. The Cobb-Douglas case, $K'=\bar AK^{1-\delta}I^{\delta}$ with log utility, is
+the $\e\to1$ limit. There value/output is constant and the real interest rate and real
+wage follow from a log-linear law of motion. I add AI capital as a third input. It combines with the capital-labor bundle
 through a CES aggregator, and its technology improves either disembodied (a factor
 $\Gamma$ on the installed stock) or embodied (a falling price $P_A$ of new units, as in
 \citealp{ghk1997}). Under pairing (i), the balanced growth path has closed forms for any
 elasticity, an AK regime for substitutes and a Baumol limit for complements. Under
-pairing (ii), the transition paths of $r$ and $W$ after any AI shock are closed form.
+pairing (ii), with all three inputs sharing one elasticity, the transition paths of $r$
+and $W$ after any AI shock are closed form. Saving rates depend only on the technology
+path, not on the state.
 Embodied and disembodied progress with the same long-run effect raise
 $\sum_t\ln(1+r_{t+1})$ by exactly the same amount, the long-run log output gain, and
 differ only in timing. A gradual (S-curve) disembodied shock raises $r$ sooner and more.
 A surprise permanent step does the reverse: embodied progress raises the ex-ante real
-rate more, because disembodied progress delivers its first gain as a windfall.
+rate more, because disembodied progress delivers its first gain as a windfall. With
+complements, a disembodied step even lowers $r$.
 \end{abstract}
 
 \section{The blueprint: two closed-form pairings with one capital stock}
@@ -55,10 +62,11 @@ elasticity (footnote~11 of the paper). With constant hours on a balanced growth 
 $1+r=(1+g)^\theta/B$.
 
 I could not obtain the published article's text. The working paper has the
-Cobb-Douglas, quadratic-cost case. The two pairings below follow the published
-article's structure as the author describes it: CES production paired with an
-adjustment-cost function, and Cobb-Douglas production paired with Cobb-Douglas
-accumulation. I derive their closed forms here.
+Cobb-Douglas, quadratic-cost case. The pairings below follow the published
+article's structure as the author describes it. CES production pairs with an
+adjustment-cost function, and with a CES investment/accumulation function of the same
+elasticity, which gives an exact solution with a constant saving rate. The Cobb-Douglas
+production/accumulation pair is the special case $\e=1$. I derive the closed forms here.
 
 \subsection{Pairing (i): CES production and adjustment costs}
 
@@ -139,10 +147,65 @@ offsetting amount. Under pairing (i), faster growth lowers $V/Y$. With $g=0$, bo
 agree that a fall in the required return (a rise in $B$) raises $V/Y$ by the same
 proportion as $\rho+\delta$ falls.
 
+\subsection{Pairing (ii), general case: CES production and CES accumulation}
+
+The Cobb-Douglas pair generalizes. Let $\rho\equiv(\e-1)/\e$ and
+\begin{equation}
+Y^\rho=a_KK^\rho+a_L(ZN)^\rho,\qquad
+K(t+1)^\rho=\bar A^\rho\big[(1-\delta)K(t)^\rho+\delta I(t)^\rho\big],\qquad
+U=\sum_t B^t\frac{C_t^{\rho}}{\rho},
+\label{eq:cescesd1}
+\end{equation}
+with hours fixed. In the paper's preferences, fixed hours make utility a power of $C$
+with exponent $b(1-s)$, so the last condition is $b(1-s)=\rho$. Equivalently, the
+intertemporal elasticity of substitution $1/\theta$ equals the production elasticity
+$\e$. The accumulation technology is CES in old capital and new investment, with the
+same elasticity as production. As in the Cobb-Douglas case, inverting it gives a convex
+adjustment-cost function, $I=\{[(K'/\bar A)^\rho-(1-\delta)K^\rho]/\delta\}^{1/\rho}$, and
+$Q=\partial I/\partial K'=(I/K')^{1/\e}/(\bar A^\rho\delta)$.
+
+\begin{proposition}[Exact solution, CES pair]\label{prop:cesces1}
+For any path of $Z$, anticipated or not, the value function is
+$V_t(K)=\kappa K^\rho/\rho+h_t$, and
+\begin{gather*}
+\frac IY=s=\Lambda^{\e},\qquad
+\Lambda\equiv\frac{B\bar A^\rho\delta a_K}{1-B\bar A^\rho(1-\delta)},\qquad
+\kappa=\frac{a_K(1-s)^{-1/\e}}{1-B\bar A^\rho(1-\delta)},\\
+K(t+1)^\rho=\bar A^\rho\big[(1-\delta+\delta a_Ks^\rho)K(t)^\rho+\delta a_Ls^\rho(Z(t)N)^\rho\big],\\
+1+r(t+1)=\frac1B\Big(\frac{Y(t+1)}{Y(t)}\Big)^{1/\e},\qquad
+W=a_LZ\Big(\frac{Y}{ZN}\Big)^{1/\e},\\
+\frac{WN}{Y}=a_L\Big(\frac{ZN}{Y}\Big)^{\rho},\qquad
+\frac VY=\frac{s^{1/\e}}{\bar A^\rho\delta}\Big(\frac{K'}{Y}\Big)^{\rho}.
+\end{gather*}
+As $\e\to1$, $s\to B\delta\alpha/(1-B(1-\delta))$ and the law of motion becomes log-linear:
+Proposition~\ref{prop:cdcd1}.
+\end{proposition}
+\emph{Proof sketch.} With the guess for $V_{t+1}$, the Bellman objective is
+$(Y-I)^\rho/\rho+B\kappa\bar A^\rho[(1-\delta)K^\rho+\delta I^\rho]/\rho$. The first-order condition
+$C^{\rho-1}=B\kappa\bar A^\rho\delta I^{\rho-1}$ makes $I/C$, and therefore $I/Y$, a constant
+$\phi^{\e}$ with $\phi=B\kappa\bar A^\rho\delta$. Substituting back, the maximized objective is
+$(1+\phi^\e)^{1/\e}Y^\rho/\rho+B\kappa\bar A^\rho(1-\delta)K^\rho/\rho$. This is linear in $K^\rho$
+and $(ZN)^\rho$, so the guess reproduces itself with
+$\kappa=(1+\phi^\e)^{1/\e}a_K+B\bar A^\rho(1-\delta)\kappa$. Solving the two equations gives
+$s=\phi^\e/(1+\phi^\e)=\Lambda^\e$. The interest rate follows from $C\propto Y$ and the
+household Euler equation.
+
+Three features matter for what follows. First, $\rho$ appears in all three places
+(production, accumulation and utility). This is what makes the problem linear in
+$K^\rho$, and it is why CES production with Cobb-Douglas accumulation, or with log
+utility, is not exact. Second, the saving rate is $\Lambda^\e$, so
+$d\ln s=\e\,d\ln\Lambda$. Its response to the return on saving (through $B$, $\delta$ or $a_K$)
+is $\e$ times the Cobb-Douglas response. Third, the normalization
+$\delta=x^{1/\e}/(x^{1/\e}+1-d)$ and $\bar A^\rho=(1+g)^{-1/\e}(x^{1/\e}+1-d)$, with $x=g+d$,
+makes the CES accumulation function agree to first order with $K'=(1-d)K+I$ on the
+balanced growth path. Then $Q=1$ there, and the path coincides with pairing (i)'s. This
+generalizes the Cobb-Douglas normalization.
+
 \section{The model with AI capital}
 
 This section sets out the three-input model with pairing (i) technologies.
-Section~\ref{sec:cdcd} replaces the accumulation technology with pairing (ii).
+Sections~\ref{sec:cdcd} and~\ref{sec:cesces} replace the accumulation technology
+with pairing (ii): first Cobb-Douglas, then the general CES pair.
 
 \paragraph{Technology.} The traditional bundle and gross output are
 \begin{equation}
@@ -398,13 +461,82 @@ constant in the exact model and nearly constant in the quadratic one.
 \caption{Pairing (ii), exact solution (solid) versus quadratic adjustment costs with matched curvature (dashed). Right panel: surprise permanent 20-fold step.}\label{fig:cdcd}
 \end{figure}
 
-\paragraph{Why CES does not inherit the exact solution.} The exact solution depends on
-each input's output elasticity being constant. With $\e\neq1$, AI's share
-$(1-\omega)\lambda^{1-\e}$ moves with the effective cost of AI, and so do the optimal saving rates. The
-script solves the CES economy with Cobb-Douglas accumulation numerically (the
-disembodied S-curve). With $\e=1.5$, $I_A/Y$ rises from 0.030 to 0.105, and with
-$\e=0.5$ it falls from 0.021 to 0.005. Pairing (i) is the natural choice for CES: it
-keeps the closed forms on the balanced growth path for every $\e$.
+\paragraph{CES with Cobb-Douglas accumulation is not exact.} The Cobb-Douglas pair
+depends on each input's output elasticity being constant. With $\e\neq1$ production but
+Cobb-Douglas accumulation, AI's share $(1-\omega)\lambda^{1-\e}$ moves with the effective cost
+of AI, and so do the optimal saving rates. The script solves this mixed economy
+numerically (the disembodied S-curve). With $\e=1.5$, $I_A/Y$ rises from 0.030 to 0.105,
+and with $\e=0.5$ it falls from 0.021 to 0.005. The exact solution for $\e\neq1$ requires
+the CES accumulation function of the next section.
+
+\section{Pairing (ii) with AI, general case: CES production and CES accumulation}\label{sec:cesces}
+
+To keep the problem linear in $X^\rho$ for every capital stock, all three inputs share
+the elasticity $\e$, and each capital stock accumulates through a CES function of the
+same elasticity:
+\begin{gather}
+Y^\rho=a_KK^\rho+a_L(ZN)^\rho+a_A(\Gamma A)^\rho,\nonumber\\
+K'^\rho=\bar A_K^\rho\big[(1-\delta_K)K^\rho+\delta_KI_K^\rho\big],\qquad
+A'^\rho=\bar A_A^\rho\big[(1-\delta_A)A^\rho+\delta_A(I_A/P_A)^\rho\big],
+\label{eq:cesAI}
+\end{gather}
+with $U=\sum_tB^tC_t^\rho/\rho$ and hours fixed. AI is now equally substitutable for capital
+and labor. The nested form of Section~2, with a Cobb-Douglas $K$--$L$ bundle inside the CES,
+is exact only when $\e=1$, because $X^\rho=K^{a\rho}(ZN)^{(1-a)\rho}$ is not linear in $K^\rho$.
+
+\begin{proposition}[Exact solution with AI, CES pair]\label{prop:cesAI}
+For any paths of $Z$, $\Gamma$ and $P_A$, the value function is
+$V_t=(\kappa_{K,t}K^\rho+\kappa_{A,t}A^\rho)/\rho+h_t$. Define
+$\phi_{K,t}=B\kappa_{K,t+1}\bar A_K^\rho\delta_K$ and
+$\phi_{A,t}=B\kappa_{A,t+1}\bar A_A^\rho\delta_AP_{A,t}^{-\rho}$. Then
+\begin{gather*}
+\frac{I_{j,t}}{Y_t}=s_{j,t}=\frac{\phi_{j,t}^{\e}}{1+\phi_{K,t}^{\e}+\phi_{A,t}^{\e}},\qquad
+\Omega_t=\big(1+\phi_{K,t}^{\e}+\phi_{A,t}^{\e}\big)^{1/\e},\\
+\kappa_{K,t}=\Omega_ta_K+B\bar A_K^\rho(1-\delta_K)\kappa_{K,t+1},\qquad
+\kappa_{A,t}=\Omega_ta_A\Gamma_t^\rho+B\bar A_A^\rho(1-\delta_A)\kappa_{A,t+1}.
+\end{gather*}
+Saving rates are functions of time alone. They are found by recursing backward from the
+final steady state and do not depend on the capital stocks. They do not depend on $Z$
+at all, and they are constant whenever $\Gamma$ and $P_A$ are. Prices are
+$1+r_{t+1}=B^{-1}(C_{t+1}/C_t)^{1/\e}$ and $W=a_LZ(Y/ZN)^{1/\e}$. The labor share is
+$a_L(ZN/Y)^\rho$ and the AI share is $a_A(\Gamma A/Y)^\rho$.
+\end{proposition}
+
+Two features differ from the $\e=1$ case. First, when $\e\neq1$, news about AI
+changes saving rates on announcement, because $\kappa_{A,t}$ looks forward through
+$\Gamma^\rho$ and $P_A^{-\rho}$. With $\e=1$, saving rates ignore technology entirely.
+Second, the direction of that response depends on $\e$. With substitutes, cheaper
+future AI raises the value of AI capital, and $I_A/Y$ rises. With complements, cheaper
+AI means less AI spending is needed, and $I_A/Y$ falls.
+
+\begin{table}[h]\centering\small
+\caption{Exact solutions, CES pair with AI (IES $=\e$): 20-fold fall in the cost of AI. $r_1$ is the rate between years 0 and 1.}\label{tab:cesexact}
+\input{table_cesexact.tex}
+\end{table}
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{figures/fig_cesexact.pdf}
+\caption{Exact solutions for the CES pair (Proposition~\ref{prop:cesAI}; $\e=1$ is Proposition~\ref{prop:cdcdAI}). 20-fold S-curve fall in the cost of AI.}\label{fig:cesexact}
+\end{figure}
+
+\paragraph{Results.} The calibration has the same initial shares, interest rate and
+investment rates as before, with the IES set equal to $\e$ (Table~\ref{tab:cesexact},
+Figure~\ref{fig:cesexact}).
+\begin{enumerate}
+\item \emph{S-curve.} For every $\e$, disembodied progress raises $r$ sooner and higher
+than embodied progress (peaks of 8.5 vs 8.3 percent for $\e=0.5$ and 9.4 vs 9.1 percent
+for $\e=1.5$). Long-run wage gains are 6.8, 13.8 and 38 percent, close to the
+closed forms of pairing (i).
+\item \emph{Surprise step.} Embodied progress raises the ex-ante real rate more for every $\e$.
+With complements, a disembodied step \emph{lowers} $r$, to 7.4 percent. The AI saving rate drops at
+once from 0.023 to 0.005, so consumption jumps up and then grows more slowly. With
+substitutes, the step raises $r$ to 10.3 (disembodied) or 12.3 percent (embodied), because the
+AI investment boom pushes consumption growth up.
+\item \emph{Exactness depends on IES $=\e$.} With log utility and $\e=0.5$, the generic
+solver shows that $I_K/Y$ moves between 0.157 and 0.163 after a labor-technology
+shock, so it is no longer constant. With IES $=\e$, the same shock leaves both saving rates
+exactly unchanged.
+\end{enumerate}
 
 \section{Pairing (i) with AI: transitions for embodied versus disembodied shocks}\label{sec:trans}
 
@@ -492,6 +624,18 @@ growth rate under permanent progress (Table~\ref{tab:checks2}).
 \begin{table}[h]\centering\scriptsize
 \caption{Verification, pairing (ii) (\texttt{cdcd\_model.py}).}\label{tab:checks2}
 \input{table_checks_cdcd.tex}
+\end{table}
+
+For the CES pair, \texttt{ces\_exact.py} solves the nonlinear equilibrium (two Euler
+equations with the CES accumulation technology) starting from saving rates 5 percent
+away from the closed form. It confirms the backward-recursion saving rates for both
+elasticities, both kinds of progress, and both S-curve and step shocks. It also checks
+$s=\Lambda^\e$, the match with the balanced growth path of pairing (i), and the invariance
+of saving rates to $Z$ (Table~\ref{tab:checks3}).
+
+\begin{table}[h]\centering\scriptsize
+\caption{Verification, CES pair (\texttt{ces\_exact.py}).}\label{tab:checks3}
+\input{table_checks_cesexact.tex}
 \end{table}
 
 \section{Extensions}

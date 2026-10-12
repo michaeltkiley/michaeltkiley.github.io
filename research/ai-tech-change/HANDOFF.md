@@ -76,3 +76,17 @@ accumulation (K' = Abar K^(1-delta) I^delta). The published text was not availab
 - `cdcd_model.py`: closed form, a generic Newton check, matched-curvature comparison with
   the quadratic model, and a CES + CD-accumulation counterexample.
 If the user supplies the published PDF, align notation and parameterization with it.
+
+## Status (session 2, third request)
+Clarification from the user: in the JoB article, CES production pairs with a CES
+investment/accumulation equation, giving an exact solution with a constant saving
+rate. The CD/CD pair is the special case. Derived and verified (`ces_exact.py`):
+- K'^rho = Abar^rho[(1-delta)K^rho + delta I^rho], Y^rho = a_K K^rho + a_L (ZN)^rho,
+  U = C^rho/rho (IES = e; in paper's notation b(1-s) = rho), hours fixed.
+  V = kappa K^rho/rho; s = Lambda^e, Lambda = B Abar^rho delta a_K/(1 - B Abar^rho (1-delta)).
+- AI: three-input CES with common e, plus a CES accumulation for A with I_A/P_A. Saving
+  rates are time-only functions from a backward recursion in kappa_K, kappa_A (state-free,
+  invariant to Z). The nested CD bundle inside CES is exact only at e = 1.
+- Exactness fails with IES != e (checked numerically).
+Still unverified against the published text: notation and whether the article also
+imposes IES = e.
