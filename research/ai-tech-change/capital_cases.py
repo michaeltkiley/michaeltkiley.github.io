@@ -43,6 +43,23 @@ CAPS = ("K", "A")
 # adjustment costs: elasticity of I/K with respect to Q equal to one, 1/(c x) = 1
 # (Kiley 2000's "moderate" case)
 ADJ = {j: 1.0 / (BASE["g_Z"] + BASE["d"][j]) for j in CAPS}
+# variant settings (set by configure()): adjustment costs on/off and output-file suffix
+OPTS = dict(adj=True, suffix="", label="adjustment costs", scurve="logistic", T_end=10)
+
+
+def configure(dA=0.20, adj=True, suffix="", label=None, scurve="logistic", T_end=10):
+    """Set AI depreciation, adjustment costs and the S-curve; recompute dependent calibration.
+
+    scurve = "logistic": centered on year `mid` (baseline note).
+    scurve = "ramp":     0.5(1 - cos(pi t/T_end)) for t <= T_end and 1 after: smooth, flat at
+                         both ends, fully converged at year T_end.
+    """
+    BASE["d"]["A"] = dA
+    BASE["GammaA0"] = BASE["r0"] + dA                         # keep lambda_A = 1 initially
+    for j in CAPS:
+        ADJ[j] = 1.0 / (BASE["g_Z"] + BASE["d"][j])
+    OPTS.update(adj=adj, suffix=suffix, scurve=scurve, T_end=T_end,
+                label=label or ("adjustment costs" if adj else "no adjustment costs"))
 
 
 # ----------------------------------------------------------------------------
@@ -115,6 +132,9 @@ def bgp(e, lev=None, gr=None, p=BASE):
 # ----------------------------------------------------------------------------
 def scurve(T, p=BASE):
     t = np.arange(T + 1)
+    if OPTS["scurve"] == "ramp":
+        Te = OPTS["T_end"]
+        return np.where(t >= Te, 1.0, 0.5 * (1 - np.cos(np.pi * np.minimum(t, Te) / Te)))
     S = 1 / (1 + np.exp(-(t - p["mid"]) / p["width"]))
     return (S - S[0]) / (1 - S[0])
 
@@ -250,14 +270,14 @@ def run(T=250):
     # closed-form BGP satisfies the equilibrium conditions
     path, x, _, _ = tech(e, "jump", "K", "dis", 60)
     path = {k: (np.full(61, BASE["GammaA0"]) if k == "GA" else np.ones(61)) for k in path}
-    M = Model(e, path, x, True, {})
+    M = Model(e, path, x, OPTS["adj"], {})
     checks["closed-form BGP satisfies equilibrium"] = float(
         np.max(np.abs(M.resid(np.concatenate([np.full(60, M.term[k]) for k in range(2)])))))
     for case in CASES:
         for cap in CAPS:
             for typ in ("dis", "emb"):
                 path, x, size, gr = tech(e, case, cap, typ, T)
-                res = Model(e, path, x, True, gr).solve()
+                res = Model(e, path, x, OPTS["adj"], gr).solve()
                 res["size"] = size
                 out[(case, cap, typ)] = res
                 key = f"{case} {cap} {typ}"
@@ -309,10 +329,10 @@ def figure(out, H=40):
         axes[row, 0].set_ylabel(lab)
     axes[0, 0].legend(fontsize=8, frameon=False)
     fig.suptitle("Same 10% long-run output gain; Cobb-Douglas K-L bundle, AI substitute (e = 1.5); "
-                 "adjustment costs", fontsize=11)
+                 + OPTS["label"], fontsize=11)
     fig.tight_layout()
     for ext in ("pdf", "png"):
-        fig.savefig(os.path.join(FIG, f"fig_capital_cases.{ext}"), dpi=150)
+        fig.savefig(os.path.join(FIG, f"fig_capital_cases{OPTS['suffix']}.{ext}"), dpi=150)
     plt.close(fig)
 
 
@@ -339,7 +359,7 @@ def summary_table(out):
         if case != CASES[-1]:
             L.append(r"\midrule")
     L.append(r"\bottomrule\end{tabular}")
-    with open(os.path.join(HERE, "table_capital_cases.tex"), "w") as f:
+    with open(os.path.join(HERE, f"table_capital_cases{OPTS['suffix']}.tex"), "w") as f:
         f.write("\n".join(L) + "\n")
 
 
@@ -351,9 +371,9 @@ def main():
     for k, v in checks.items():
         C.append(f"{k} & {v:.1e}\\\\")
     C.append(r"\bottomrule\end{tabular}")
-    with open(os.path.join(HERE, "table_capital_checks.tex"), "w") as f:
+    with open(os.path.join(HERE, f"table_capital_checks{OPTS['suffix']}.tex"), "w") as f:
         f.write("\n".join(C) + "\n")
-    with open(os.path.join(HERE, "results_capital_cases.json"), "w") as f:
+    with open(os.path.join(HERE, f"results_capital_cases{OPTS['suffix']}.json"), "w") as f:
         json.dump(dict(checks=checks, adj=ADJ,
                        sizes={cap: level_size(1.5, cap) for cap in CAPS},
                        summary={" ".join(k): dict(r1=float(v["r"][0]), peak=float(v["r"].max()),
@@ -369,4 +389,10 @@ def main():
 
 
 if __name__ == "__main__":
+    import sys
+    if "--equal-d-noadj" in sys.argv:
+        configure(dA=BASE["d"]["K"], adj=False, suffix="_eqd_noadj", scurve="ramp", T_end=10,
+                  label="d_A = d_K = 0.066, no adjustment costs")
+        TITLES.update(mixed="Half jump at t = 0, half S-curve (complete by year 10)",
+                      scurve="S-curve from t = 0, complete by year 10")
     main()
