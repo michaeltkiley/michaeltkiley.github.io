@@ -119,3 +119,10 @@ substitute (e = 1.5), log utility, fixed hours. Linear accumulation vs. adjustme
 - Key dynamics: embodied progress raises r more on impact. Ongoing or anticipated embodied
   progress with linear accumulation first LOWERS r (firms wait for cheaper capital);
   adjustment costs mostly remove that.
+
+## Status (session 2, sixth request): note narrowed to jump + S-curve
+The user dropped the faster-growth case (no BGP with e > 1) and linear accumulation.
+`ai_growth_note`/`growth_cases.py` were renamed to `ai_capital_note.tex/.pdf` and
+`capital_cases.py`. Now: adjustment costs only (c_j = 1/x_j), same elasticities,
+same 10% long-run output gain; summary of r, W and labor share in `table_capital_cases.tex`
+and `fig_capital_cases`.
