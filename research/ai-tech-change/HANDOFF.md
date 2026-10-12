@@ -41,3 +41,24 @@ not download it because its environment had Trusted network access.
 - sigma < 1: Baumol-type limit.
 - Numerics: perfect-foresight transition paths for an embodied vs. a
   disembodied S-curve AI shock, checked against the closed forms.
+
+## Status (session 2, 2026-10-12)
+Done: paper downloaded and read; model derived, verified, written up.
+- `ai_tech_change.tex` / `.pdf`: research note (closed forms, limits, transitions).
+- `ai_model.py`: closed forms, verification against equilibrium conditions,
+  perfect-foresight transitions, figures (`figures/`), tables (`table_*.tex`),
+  `results.json`. Run `python3 ai_model.py` (numpy, matplotlib), then pdflatex twice.
+
+Corrections to the draft above, after reading FEDS 2000-05:
+- The working paper's production is Cobb-Douglas K-N; CES appears only in this
+  extension (the AI aggregator). The published JoB version was not checked (paywalled).
+- Paper's adjustment cost is 0.5c(I/K - x)^2 K with x = g + d, so adjustment costs
+  vanish on the BGP and Q = 1 exactly. The user costs are therefore
+  R_K = r + d_K and u_A = (1+r)(1+gamma_q) - (1-d_A), with no adjustment-cost terms.
+- CES is written in share form, F = [w^(1/e) X^rho + (1-w)^(1/e) M^rho]^(1/rho),
+  so s_M = (1-w) lambda^(1-e) and P_X^(1-e) = (1-s_M)/w.
+- Paper's notation: s is utility curvature, so the AI elasticity is epsilon (e), and the
+  weight is omega. 1 + r = (1+g)^theta / B with theta = 1 - b(1-s).
+
+Possible next steps: calibrate e, d_A, gamma_q to data; nested task-based CES
+for labor; discount-rate (equity premium) experiments as in Section 3 of the paper.
