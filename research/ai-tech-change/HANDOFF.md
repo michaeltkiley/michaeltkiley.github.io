@@ -126,3 +126,12 @@ The user dropped the faster-growth case (no BGP with e > 1) and linear accumulat
 `capital_cases.py`. Now: adjustment costs only (c_j = 1/x_j), same elasticities,
 same 10% long-run output gain; summary of r, W and labor share in `table_capital_cases.tex`
 and `fig_capital_cases`. Added: half-jump/half-S-curve case ("mixed") and output (net of adjustment costs).
+
+## Status (session 2): saving models (not yet in a note)
+`saving_models.py`: same production as capital_cases (e = 1.5 baseline, d_A = d_K = 0.066,
+no adjustment costs, ramp S-curve complete by year 10). Saving models: Ramsey, Solow (fixed s),
+perpetual youth (p = 0.025, flat labor income), Diamond OLG (30-year periods, long run only).
+Long run: closed-form fixed points in r. Key result: Delta r = 0 for regular-capital progress
+in every model, and for AI progress when e = 1; for AI with e = 1.5 it is Solow +1.09 pp,
+Diamond +0.44, PY +0.04, Ramsey 0. Outputs: fig_saving_longrun, fig_saving_trans_{A,K},
+table_saving_*.tex, results_saving_models.json.
