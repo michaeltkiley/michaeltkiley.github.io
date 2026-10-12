@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,graphicx,caption}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parskip}{4pt}
+
+\title{Embodied Progress in AI versus Regular Capital:\\
+Annual OLG Economy Compared with Ramsey}
+\author{Research note (draft)}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent The embodied-progress experiments are repeated in an annual overlapping-generations economy (60 cohorts, working ages 1--45) with the same technology, shocks, adjustment costs,
+depreciation and 5-year S-curve, with and without internal habits ($h=0.7$). A shock is a one-time level shift sized to raise long-run GDP by 10 percent in each model.
+Over the first decade the OLG real rate is close to the Ramsey rate: the decade average differs by 0.01--0.10 points, and the AI-minus-regular gap differs by less than 0.2 points.
+The two models separate afterwards. In Ramsey the long-run rate is 7.5 percent for any level shift. In the OLG economy
+it is 7.5 percent for regular-capital progress but 7.61--7.62 percent for AI, because AI lowers the labor share (69.7 to 67.8 percent) and so shifts income toward capital. The AI-minus-regular gap in the real rate is
+about $+0.1$ points from about year 20 in the OLG model against zero in Ramsey. The conclusion is that AI does not differ from regular capital for the real rate over the first decade in either saving model. Beyond that, AI raises the long-run rate by about 0.1 point if saving is not perfectly elastic.
+\end{abstract}
+
+\section{What changes relative to the Ramsey runs}
+
+Everything else is as in the embodied note: Cobb-Douglas capital--labor bundle inside a CES aggregate with AI capital ($\varepsilon=1.5$), $d_A=d_K=6.6$ percent, trend growth 1.5 percent,
+adjustment costs half the earlier baseline ($c_K=6.2$, $c_A=6.5$), GDP as gross value added, and the same three timings.
+
+\paragraph{Households.} Each cohort has a lifetime of 60 years (ages 20--79), earns a flat wage for the first 45, holds wealth in a fund that owns both capital stocks, and has log utility with no bequests.
+With habits the cohort maximizes $\sum_k\beta^k\ln(c_k-hc_{k-1})$. The habit stock starts at zero at entry, and cohorts alive at the time of the shock keep their own pre-shock habit stock.
+The cohort Euler equation $\lambda_k=1/X_k-\beta h/X_{k+1}=\beta R\lambda_{k+1}$ (with $X=c-hc_{-1}$) is solved exactly for any path of returns: $X_k$ is proportional to the inverse of a discounted sum of future multipliers,
+so a cohort's whole consumption path follows from one lifetime budget constraint. Existing cohorts' wealth is revalued by the change in the payoff to capital at date 0.
+
+\paragraph{Calibration.} The patience parameter $\beta$ is chosen so that the initial balanced growth path has $r=7.5$ percent and the same consumption share as Ramsey ($\beta=0.939$ without habits, $0.932$ with).
+The initial wealth distribution is the steady-state life-cycle profile and is consistent with the capital stock (aggregate assets equal the capital payoff to $10^{-15}$).
+
+\paragraph{Equilibrium and long run.} Two conditions hold each year: the two capital stocks earn the same return, and consumption out of output net of investment equals the sum of cohort consumption.
+Newton--Levenberg--Marquardt solves the 500 equations in the two investment-rate paths; the long-run rate comes from a one-dimensional fixed point in $r$ (closed form for the balanced growth path, as in the saving-models note).
+Each shock is sized within each model for a 10 percent long-run GDP gain (regular-capital shocks are identical to Ramsey; the AI shock is 3 percent larger in logs, 1.26 against 1.22, because the long-run rate rises). With adjustment costs and habits switched off, the solver reproduces the earlier annual-OLG results to four digits.
+
+\section{Results}
+
+\begin{table}[h!]
+\centering\small
+\caption{Real rate: OLG versus Ramsey. Averages are in percentage points over 7.5 percent.}
+\resizebox{\textwidth}{!}{\input{table_olg.tex}}
+\end{table}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_olg_r.png}
+\caption{Real rate, OLG (solid) versus Ramsey (dashed).}
+\end{figure}
+
+\paragraph{First decade.} The OLG and Ramsey rates are close. With log utility, the decade average after regular-capital progress is $+0.20$ (OLG) against $+0.26$ (Ramsey) for the S-curve and $+0.62$ against $+0.69$ for the jump.
+With habits the figures are $+0.11$ against $+0.15$ and $+0.94$ against $+1.04$. For AI the two models differ by 0.01--0.04 points. Habits matter more than the saving model for the jump: they raise the impact rate from 8.4 to 10.2 percent (OLG, regular) and from 8.2 to 9.8 percent (AI).
+Life-cycle saving is slightly less responsive than the representative household's, so the impact rate is a little lower in the OLG model.
+
+\paragraph{AI versus regular capital.} Table~\ref{tab:gap} gives the gap.
+
+\begin{table}[h!]
+\centering\small
+\caption{AI minus regular capital, average real rate in percentage points.}\label{tab:gap}
+\input{table_olg_gap.tex}
+\end{table}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_olg_gap.png}
+\caption{Real-rate gap between AI and regular-capital progress.}
+\end{figure}
+
+In the first decade the OLG gap is between $-0.06$ and $+0.13$ points and the Ramsey gap between $-0.17$ and $+0.07$, so neither is distinguishable from zero in economic terms, and its sign depends on timing and habits.
+In years 11--20 the OLG gap is $+0.05$ to $+0.12$ points and in years 21--50 it settles at $+0.11$ to $+0.12$, while in Ramsey it is between $-0.05$ and $0$ and then $+0.01$. The long-run rates are 7.50 percent (regular) and 7.61--7.62 percent (AI) in the OLG model.
+The long-run difference comes from the capital share rising by 1.9 points with AI and not with regular capital: the fixed-point condition for the OLG economy then requires a slightly higher return to equate the wealth that households want to hold with the wealth the economy needs.
+The effect is small because the AI share starts at 3 percent; this note does not separately identify how elastic life-cycle saving is.
+
+\paragraph{Real variables.} The real side is almost the same in the two models, so the earlier findings on output and investment carry over (Table~\ref{tab:real}).
+
+\begin{table}[h!]
+\centering\small
+\caption{GDP, investment share, wage and labor share, OLG versus Ramsey.}\label{tab:real}
+\resizebox{\textwidth}{!}{\input{table_olg_real.tex}}
+\end{table}
+
+\section{Caveats}
+\begin{itemize}
+\item Habit formation at the cohort level is a modeling choice: the zero habit stock at entry is arbitrary. It affects mainly the shape of the age profile, not the aggregate response, because the shock is announced to all cohorts.
+\item The OLG long-run rate is a small effect (about 0.1 point) and depends on the calibration of the age profile and on the initial AI share of 3 percent. A larger initial AI share, or $\varepsilon=2$, would give a larger difference, as in the elasticity grid of the saving-models note.
+\item Depreciation, adjustment costs and shock sizes are those of the embodied note; none was changed here.
+\item The model has fixed hours and flexible prices. Interest-rate effects of nominal rigidities are not included.
+\end{itemize}
+
+\section*{Appendix: numerical checks}
+\begin{table}[h!]
+\centering\small
+\input{table_olg_checks.tex}
+\end{table}
+\end{document}

@@ -182,3 +182,9 @@ Constant savers redefined to a Solow rule: save 17.4% (= aggregate gross investm
 Net-income definitions had artifacts (current-price depreciation inflated capital income when P fell; base-price depreciation broke
 the AI cases). The solver now accepts a warm start (z0); embodied_dynamics.py warm-starts each household block from the previous one.
 Results: GDP gap closed at year 10: jump 53-55% (K), 45-49% (AI); 5-yr S-curve 39-41% / 34-36%.
+
+## Annual OLG with adjustment costs and habits (olg_dynamics.py, ai_olg_note.tex/pdf)
+- Same calibration as embodied note (d_A=d_K, ACs halved, 5-yr S-curve; nothing changed). Blocks: Log, Log + habits (h=0.7, cohort-level, habit stock 0 at entry).
+- Validated: with ACs off and h=0 it reproduces saving_models.Transition('olg') exactly; cohort Euler/budget checks ~1e-13; BGP residual 3e-15.
+- Findings: decade avg r within 0.01-0.10pp of Ramsey; AI-regular gap in decade 1 is -0.06..+0.13 (OLG); OLG long-run r 7.50 (regular) vs 7.61-7.62 (AI); gap ~+0.1pp from year ~20; Ramsey gap 0.
+- Outputs: table_olg*.tex, figures/fig_olg_r, fig_olg_gap, results_olg.json.
