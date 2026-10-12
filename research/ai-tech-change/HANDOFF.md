@@ -94,3 +94,16 @@ imposes IES = e.
 ## Workflow rule from the user
 Once an analytic (closed-form) case is confirmed, stop and report back before
 building any AI extension of it. The user has their own ideas for the AI cases.
+
+## Status (session 2, fourth request): three cases, AI vs other progress
+The user's design: same long-run output gain for every shock. Disembodied (Gamma in
+production) vs embodied (P in accumulation). Labor-augmenting Z as the benchmark.
+- Case 1 (one K, e = 0.5) and Case 2 (one K, e = 1.5): exact with IES = e. Saving rates
+  come from a time-only backward recursion. Closed-form long run: ln W = gamma_Y/e,
+  dln(labor share) = -rho gamma_Y, shock size (Gamma/P)^(e-1) = [1-(1-s_K)e^(-rho gamma_Y)]/s_K.
+- Case 3 (K-L bundle CD or CES 0.5, AI substitute e2 = 1.5, AI share 3%): no closed form
+  (X^rho2 is not linear in K^rho1 unless e1 = e2). Solved numerically with log utility.
+  A CD bundle makes K-augmenting progress equivalent to Z (Uzawa).
+- Files: cases.py, ai_cases.tex/.pdf, figures fig_case12_exact, fig_case12_log, fig_case3,
+  fig_case3_ces, and tables table_case*_*.tex, table_checks_cases.tex, results_cases.json.
+Next: wait for the user's direction (see the workflow rule above).
