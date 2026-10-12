@@ -172,3 +172,13 @@ embodied_dynamics.py sets S_YEARS = 5 (cosine ramp complete at year 5); the 10-y
 of a 10% long-run gain), driven by adjustment costs (c = 1/x) and AI depreciation = 6.6% (equal to K); a scratch diagnostic
 under the OLD 10-year S-curve showed no adjustment costs -> 3.4/4.6 at year 10, d_A = 0.20 -> AI 3.3, IES hardly matters.
 Next step the user may want: a faster AI calibration (d_A ~ 0.2, lower c_A) and rerun the four household cases.
+
+## Status (session 2): embodied note, gross GDP + halved adjustment costs
+Requested by the user: GDP = gross value added F with adjustment costs counted as investment (investment/GDP = (F-C)/F),
+adjustment costs halved (c_K = 6.17, c_A = 6.55, i.e. half of 1/x and of the equal-speed value), and the change in
+investment/GDP reported. DEPRECIATION STAYS EQUAL (d_A = d_K = 6.6%). I wrongly set d_A = 0.20 in a first pass and reverted it
+when told: do NOT change calibration parameters unless instructed.
+Constant savers redefined to a Solow rule: save 17.4% (= aggregate gross investment rate) of gross income (W + share of F - W).
+Net-income definitions had artifacts (current-price depreciation inflated capital income when P fell; base-price depreciation broke
+the AI cases). The solver now accepts a warm start (z0); embodied_dynamics.py warm-starts each household block from the previous one.
+Results: GDP gap closed at year 10: jump 53-55% (K), 45-49% (AI); 5-yr S-curve 39-41% / 34-36%.

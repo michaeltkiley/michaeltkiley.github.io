@@ -45,10 +45,10 @@ T_DEF = 250
 
 class HH:
     """kind = "tank": the lam share consumes its labor income (hand-to-mouth).
-    kind = "saver": the lam share saves a constant fraction s of total income (wage plus the
-    net capital income on its wealth; revaluation of existing capital is excluded from income but
-    not from wealth) and so accumulates wealth; s is calibrated so the group's wealth/wage ratio on
-    the initial BGP equals the aggregate's."""
+    kind = "saver": the lam share saves a constant fraction s of gross income (its wage plus its share
+    of gross capital income F - W; revaluation of existing capital is not income) and so
+    accumulates wealth; s is calibrated so the group's wealth grows at g on the initial BGP
+    (s = 17.5%, the aggregate gross investment rate)."""
 
     def __init__(self, theta=1.0, h=0.0, lam=0.0, name="", kind="tank"):
         self.theta, self.h, self.lam, self.name, self.kind = theta, h, lam, name, kind
@@ -69,8 +69,8 @@ class Model2(cc.Model):
         self.V_pre = self.K0["K"] + self.K0["A"]                  # wealth at end of t = -1 (Q = P = 1)
         self.c_pre = c_pre
         if hh.kind == "saver":
-            self.s_rot = g * self.V_pre / (r0 * self.V_pre + w_pre)
-            c_rot_pre = (1 - self.s_rot) * hh.lam * (w_pre + r0 * self.V_pre)
+            c_rot_pre = hh.lam * (w_pre + (r0 - g) * self.V_pre)      # group consumption on the initial BGP
+            self.s_rot = 1 - c_rot_pre / (hh.lam * ss0["YZ"])
         else:
             self.s_rot = None
             c_rot_pre = hh.lam * w_pre
@@ -89,7 +89,7 @@ class Model2(cc.Model):
         Vagg = sum(S["Q"][j] * Kn[j] for j in CAPS)                  # end-of-t value, t = 0..T
         Vlag = np.concatenate([[self.V_pre], Vagg[:-1]])
         Gpay = sum(Kt[j] * (S["MP"][j] + S["extra"][j] + (1 - d_[j]) * S["Q"][j]) for j in CAPS)
-        Pi = S["Ynet"] - S["W"] - sum(d_[j] * S["Q"][j] * Kt[j] for j in CAPS)
+        Pi = S["F"] - S["W"]                                         # gross capital income
         C = np.empty(T + 1)
         phis = np.empty(T + 1)
         VR = hh.lam * self.V_pre
@@ -128,9 +128,9 @@ class Model2(cc.Model):
         res = np.concatenate(out)
         return np.where(np.isfinite(res), res, 1e3)
 
-    def solve(self, tol=1e-10, maxit=60):
+    def solve(self, tol=1e-10, maxit=60, z0=None):
         T = self.T
-        z = np.concatenate([np.full(T, self.term[k]) for k in range(2)])
+        z = np.concatenate([np.full(T, self.term[k]) for k in range(2)]) if z0 is None else z0.copy()
         R = self.resid(z)
         n = z.size
         for it in range(maxit):
@@ -172,6 +172,7 @@ class Model2(cc.Model):
                         break
                     mu *= 10
         self.err = float(np.max(np.abs(R)))
+        self.zsol = z
         ii = np.hstack([z.reshape(2, T), self.term[:, None]])
         S = self.sim(ii)
         CR, X = self.household(S)
@@ -181,16 +182,18 @@ class Model2(cc.Model):
         rotC = self.rot_consumption(S)
         return dict(r=1 / m - 1, lnY=np.log(S["Ynet"] / Z / self.ss0["YZ"]),
                     lnW=np.log(S["W"] / Z / self.ss0["WZ"]), labsh=S["W"] / S["F"],
-                    cR=CR / Z, K=S["K"]["K"], A=S["K"]["A"], err=self.err,
+                    cR=CR / Z, K=S["K"]["K"], A=S["K"]["A"], err=self.err, z=z,
                     lnC=np.log(S["C"] / Z / self.c_pre), invsh=(S["Ynet"] - S["C"]) / S["Ynet"],
+                    lnYg=np.log(S["F"] / Z / self.ss0["YZ"]), invg=(S["F"] - S["C"]) / S["F"],
+                    invg0=(self.ss0["YZ"] - self.c_pre) / self.ss0["YZ"],
                     rotC=rotC / Z, ricC=(1 - self.hh.lam) * CR / Z, Ynet=S["Ynet"] / Z,
                     phi=getattr(self, "last_phi", None) if self.hh.kind == "saver" else None)
 
 
-def run(case, cap, typ, hh, cA, T=T_DEF, cK=C_K, size_scale=1.0):
+def run(case, cap, typ, hh, cA, T=T_DEF, cK=C_K, size_scale=1.0, z0=None):
     path, x, size, gr = cc.tech(E, case, cap, typ, T)
     m = Model2(path, x, {"K": cK, "A": cA}, hh)
-    res = m.solve()
+    res = m.solve(z0=z0)
     res["size"] = size
     return res
 
