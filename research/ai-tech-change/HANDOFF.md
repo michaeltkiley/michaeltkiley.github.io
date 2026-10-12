@@ -90,3 +90,7 @@ rate. The CD/CD pair is the special case. Derived and verified (`ces_exact.py`):
 - Exactness fails with IES != e (checked numerically).
 Still unverified against the published text: notation and whether the article also
 imposes IES = e.
+
+## Workflow rule from the user
+Once an analytic (closed-form) case is confirmed, stop and report back before
+building any AI extension of it. The user has their own ideas for the AI cases.
