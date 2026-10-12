@@ -17,24 +17,29 @@ Closed Forms in a Production Economy with Adjustment Costs}
 \maketitle
 
 \begin{abstract}
-\noindent This note uses the production economy in \citet{kiley2000} (published as
-\citealp{kiley2004}) as a blueprint for analyzing AI-driven technical change. That
-paper pairs Cobb-Douglas production with convex investment adjustment costs that are
-zero along the balanced growth path, so $Q=1$ and market value, interest rates and
-factor prices have simple closed forms. I add a third input, AI capital, which combines
-with the traditional capital-labor bundle through a CES aggregator. AI technology
-improves either as disembodied progress (a factor $\Gamma$ that augments the
-installed stock) or as embodied progress (a falling price $P_A$ of new AI efficiency
-units, as in \citealp{ghk1997}). The balanced growth path has closed forms for the
-equilibrium real interest rate, the real wage, the labor share, Tobin's $Q$ and the
-ratio of market value to output. With Cobb-Douglas aggregation the path is exact
-under permanent AI progress. With substitutes ($\e>1$) the economy can tip into an
-AK regime, and with complements ($\e<1$) there is a Baumol-type limit. Perfect-foresight
-transitions show that disembodied and embodied AI shocks with identical long-run
-effects have different paths for the real interest rate and the real wage.
+\noindent This note uses \citet{kiley2004} (working paper \citealp{kiley2000}) as a
+blueprint for analyzing AI-driven technical change. The blueprint has one capital
+stock and two pairings of production and capital-accumulation technologies, each with a
+closed form. (i) CES production with an investment adjustment cost that vanishes on the
+balanced growth path gives $Q=1$ and closed forms for the interest rate, the wage, the
+labor share and value/output on that path. (ii) Cobb-Douglas production with a
+Cobb-Douglas accumulation function, $K'=K^{1-\delta}I^{\delta}$, gives an exact closed form for
+the \emph{entire} equilibrium path: saving rates and hours are constant, value/output
+is constant, and the real interest rate and real wage follow from a log-linear law of
+motion. I add AI capital as a third input. It combines with the capital-labor bundle
+through a CES aggregator, and its technology improves either disembodied (a factor
+$\Gamma$ on the installed stock) or embodied (a falling price $P_A$ of new units, as in
+\citealp{ghk1997}). Under pairing (i), the balanced growth path has closed forms for any
+elasticity, an AK regime for substitutes and a Baumol limit for complements. Under
+pairing (ii), the transition paths of $r$ and $W$ after any AI shock are closed form.
+Embodied and disembodied progress with the same long-run effect raise
+$\sum_t\ln(1+r_{t+1})$ by exactly the same amount, the long-run log output gain, and
+differ only in timing. A gradual (S-curve) disembodied shock raises $r$ sooner and more.
+A surprise permanent step does the reverse: embodied progress raises the ex-ante real
+rate more, because disembodied progress delivers its first gain as a windfall.
 \end{abstract}
 
-\section{The blueprint}
+\section{The blueprint: two closed-form pairings with one capital stock}
 
 \citet{kiley2000} studies a representative-agent economy (notation as in that paper).
 The household maximizes
@@ -42,31 +47,102 @@ The household maximizes
 U = E_t\sum_{j=t}^{\infty} B^{j-t}\,\frac{[C(j)^b L(j)^{1-b}]^{1-s}}{1-s},
 \qquad L = 1-N, \tag{2.1}
 \end{equation*}
-and holds claims to capital, $C(t)+Q(t)K(t+1)=(Q(t)+D(t))K(t)+W(t)N(t)$. Firms produce
-\begin{equation*}
-Y = K(t)^a (Z(t)N(t))^{1-a} - \Psi[I(t)/K(t)]K(t),\qquad
-\Psi[I/K]K = 0.5\,c\,(I/K - x)^2 K,\quad x = g+d, \tag{2.7}
-\end{equation*}
-with $K(t+1)=I(t)+(1-d)K(t)$. The paper writes the adjustment-cost function as $C[\cdot]$;
-I write it as $\Psi$ to avoid a clash with consumption. Optimality gives
-$1+\Psi_I = Q$ (2.11) and the capital Euler equation (2.12). Because adjustment costs
-are zero when $I/K=g+d$, every balanced growth path has $Q=1$. The steady-state results
-in the paper are then
-\begin{equation*}
-r = -\log B + g \;(s=1),\qquad \frac{aY}{K}=r+d,\qquad
-\frac{D}{Y}=\frac{a(r-g)}{r+d},\qquad \frac{V}{Y}=\frac{a}{r+d}. \tag{3.2}
-\end{equation*}
-The calibration (Table~1 of the paper) is $s=1$, $b=0.25$, $a=0.282$, $d=0.066$,
-$r=0.075$, with $c=15$ for ``moderate'' adjustment costs.
+and holds claims to capital, $C(t)+Q(t)K(t+1)=(Q(t)+D(t))K(t)+W(t)N(t)$. The
+calibration (Table~1 of the working paper) is $s=1$ (log utility), $b=0.25$, $a=0.282$,
+$d=0.066$, $r=0.075$, with $c=15$ for ``moderate'' adjustment costs. Let $\rho\equiv 1/B-1$
+be the rate of time preference and $\theta\equiv 1-b(1-s)$ the inverse intertemporal
+elasticity (footnote~11 of the paper). With constant hours on a balanced growth path,
+$1+r=(1+g)^\theta/B$.
 
-The working paper's production function is Cobb-Douglas. The CES structure below is
-this note's extension. It enters through the AI aggregator, not the capital-labor bundle.
-The appendix of \citet{kiley2000} already introduces a second capital stock with its own
-investment price and adjustment-cost function, and argues that its accumulation tracks
-physical capital unless its relative price moves. Embodied AI progress is exactly such a
-movement in relative price.
+I could not obtain the published article's text. The working paper has the
+Cobb-Douglas, quadratic-cost case. The two pairings below follow the published
+article's structure as the author describes it: CES production paired with an
+adjustment-cost function, and Cobb-Douglas production paired with Cobb-Douglas
+accumulation. I derive their closed forms here.
+
+\subsection{Pairing (i): CES production and adjustment costs}
+
+Production and the adjustment cost are
+\begin{gather*}
+Y=\Big[\alpha^{1/\e}K^{\frac{\e-1}{\e}}+(1-\alpha)^{1/\e}(ZN)^{\frac{\e-1}{\e}}\Big]^{\frac{\e}{\e-1}}
+-\Psi[I/K]K, \tag{2.7$'$}\\
+\Psi[I/K]K=0.5\,c\,(I/K-x)^2K,\qquad x=g+d,
+\end{gather*}
+with $K(t+1)=I(t)+(1-d)K(t)$. (The paper writes the cost as $C[\cdot]$; I use $\Psi$ to
+avoid a clash with consumption.) Then $Q=1+\Psi'$ (2.11), and the Euler equation is
+(2.12) with the CES marginal product. The cost vanishes at $I/K=g+d$, so on any balanced
+growth path $Q=1$ and $F_K=r+d\equiv R$. Writing $F_K=(\alpha Y/K)^{1/\e}$:
+\begin{equation}
+\frac KY=\alpha R^{-\e},\quad \text{capital share}=\alpha R^{1-\e},\quad
+\frac WZ=\Big[\frac{1-\alpha R^{1-\e}}{1-\alpha}\Big]^{\frac1{1-\e}},\quad
+\frac VY=(1+g)\,\alpha R^{-\e}\approx\frac{\alpha}{(r+d)^{\e}} .
+\label{eq:ces1}
+\end{equation}
+For $\e=1$ this is (3.2), $V/Y=a/(r+d)$. The elasticity of value/output to the
+required return is $-\e$. The paper's argument is that production mutes the valuation effect of a
+fall in $r$, relative to the Gordon model, because dividends fall as investment
+rises. That muting is strongest when capital is a poor substitute for labor. Table~\ref{tab:cesr}
+repeats the paper's Section~3 experiment ($r$ from 7.5 to 4 percent, $g=0$), normalizing
+$\alpha$ so the capital share is 0.282 initially. Pairing (i) gives closed forms on the
+balanced growth path for any $\e$. Away from it, CES makes capital's output elasticity
+vary with $K/ZN$, and the dynamics need numerical methods.
+
+\begin{table}[h]\centering\small
+\caption{Single capital stock, pairing (i): long-run effect of a fall in $r$ from 7.5 to 4 percent ($g=0$, $d=0.066$).}\label{tab:cesr}
+\input{table_ces_r.tex}
+\end{table}
+
+\subsection{Pairing (ii): Cobb-Douglas production and Cobb-Douglas accumulation}
+
+Now let production be Cobb-Douglas without separate adjustment costs, and let capital
+accumulate through a Cobb-Douglas technology
+\citep{lucasprescott1971,hercowitzsampson1991}:
+\begin{equation}
+Y=K^{\alpha}(ZN)^{1-\alpha},\qquad K(t+1)=\bar A\,K(t)^{1-\delta}I(t)^{\delta},\qquad C+I=Y.
+\label{eq:cdcd1}
+\end{equation}
+Inverting the accumulation function shows that it \emph{is} an adjustment-cost
+technology. The investment needed to reach $K'$ is $I=K\,(K'/\bar AK)^{1/\delta}$, which is
+convex in the growth of capital. The price of installed capital is
+\begin{equation*}
+Q=\frac{\partial I}{\partial K'}=\frac{I}{\delta K'},\qquad
+\frac{\partial\ln(I/K)}{\partial\ln Q}=\frac1{1-\delta}.
+\end{equation*}
+To first order around a path with $I/K=g+d$, (\ref{eq:cdcd1}) is the usual
+$K'=(1-d)K+I$ when $\delta=(g+d)/(1+g)$ and $\bar A=(1+g)^{1-\delta}\delta^{-\delta}$, and then $Q=1$
+on that path. The quadratic cost gives an elasticity of $I/K$ to $Q$ of $1/(cx)$. Matching
+the two gives $c=(1-\delta)/x$. With the paper's $g=0$ and $d=0.066$, the CD technology
+implies $c\approx14$, essentially the paper's ``moderate'' $c=15$.
+
+\begin{proposition}[Exact solution, one capital stock]\label{prop:cdcd1}
+With $s=1$ (so $U=b\ln C+(1-b)\ln L$) and any path for $Z$, anticipated or not, the
+equilibrium of (\ref{eq:cdcd1}) is
+\begin{gather*}
+\frac IY=s_I\equiv\frac{B\delta\alpha}{1-B(1-\delta)},\qquad
+N=\frac{b(1-\alpha)}{b(1-\alpha)+(1-b)(1-s_I)},\qquad
+\frac VY=\frac{QK'}{Y}=\frac{s_I}{\delta}=\frac{\alpha}{\rho+\delta},\\
+1+r(t+1)=(1+\rho)\frac{Y(t+1)}{Y(t)},\qquad W=\frac{(1-\alpha)Y}{N},\\
+\ln K(t+1)=[1-\delta(1-\alpha)]\ln K(t)+\delta(1-\alpha)\ln Z(t)+\text{const}.
+\end{gather*}
+\end{proposition}
+\emph{Proof sketch.} Guess $V(K)=\kappa\ln K+$ terms in $Z$. The first-order condition
+$1/C=B\kappa\delta/I$ and the envelope condition $\kappa=\alpha Y/C+B\kappa(1-\delta)$
+give constant $I/Y$ and $C/Y$. The labor condition $(1-b)C/(bL)=(1-\alpha)Y/N$ then fixes
+$N$. Since $C/Y$ is constant, $U_C(t)/U_C(t+1)=C(t+1)/C(t)=Y(t+1)/Y(t)$, which gives $r$.
+Finally, $V=QK'=I/\delta$.
+
+Pairing (ii) makes the whole transition closed form, not just the balanced growth path.
+It also changes one of the paper's conclusions. Value/output is $\alpha/(\rho+\delta)$, the
+paper's (3.2) with the time-preference rate $\rho$ in place of $r$. It is \emph{independent of
+growth}: faster growth lowers $K/Y$ but raises $Q$ above one by exactly the
+offsetting amount. Under pairing (i), faster growth lowers $V/Y$. With $g=0$, both pairings
+agree that a fall in the required return (a rise in $B$) raises $V/Y$ by the same
+proportion as $\rho+\delta$ falls.
 
 \section{The model with AI capital}
+
+This section sets out the three-input model with pairing (i) technologies.
+Section~\ref{sec:cdcd} replaces the accumulation technology with pairing (ii).
 
 \paragraph{Technology.} The traditional bundle and gross output are
 \begin{equation}
@@ -109,7 +185,7 @@ $(1-b)C/(bL)=W$ and $U_C(t)=B\,E_t[U_C(t+1)(1+r(t+1))]$.
 Firm value is $V(t)=Q_K(t)K(t+1)+Q_A(t)A(t+1)$; by \citet{hayashi1982} this equals the present value of
 dividends $D=Y-WN-I_K-P_AI_A$.
 
-\section{Closed forms on the balanced growth path}
+\section{Pairing (i) with AI: closed forms on the balanced growth path}
 
 Define the \emph{effective cost of AI}, the rental price of one unit of $M$,
 \begin{equation}
@@ -230,7 +306,107 @@ AI becomes so cheap that it stops being a bottleneck. Output is limited by the
 traditional bundle, and the total wage gain from AI is capped by its initial income
 share. With $s_{M,0}=0.03$, $\e=0.5$ and $a=0.282$, the cap is 8.9 percent.
 
-\section{Transitions: embodied versus disembodied AI shocks}
+\section{Pairing (ii) with AI: exact dynamics}\label{sec:cdcd}
+
+Set $\e=1$, so that $F=K^{\alpha_K}(ZN)^{\alpha_N}(\Gamma A)^{\alpha_A}$ (up to a constant) with
+$\alpha_K=a\omega$, $\alpha_N=(1-a)\omega$, $\alpha_A=1-\omega$. Replace both linear
+accumulation equations and both adjustment costs with Cobb-Douglas accumulation:
+\begin{equation}
+K(t+1)=\bar A_K K(t)^{1-\delta_K}I_K(t)^{\delta_K},\qquad
+A(t+1)=\bar A_A A(t)^{1-\delta_A}\big[I_A(t)/P_A(t)\big]^{\delta_A},\qquad
+C+I_K+I_A=Y .
+\label{eq:cdcdAI}
+\end{equation}
+Here $I_A$ is AI spending in output units, so $1/P_A$ is the number of efficiency units
+one unit of output buys. Embodied progress (falling $P_A$) raises only the
+productivity of new AI investment. Disembodied progress (rising $\Gamma$) raises the
+productivity of the whole stock.
+
+\begin{proposition}[Exact solution with AI]\label{prop:cdcdAI}
+With $s=1$ and any paths of $Z$, $\Gamma$ and $P_A$:
+\begin{enumerate}
+\item Saving rates are constant and separate by asset:
+$\displaystyle \frac{I_j}{Y}=s_j=\frac{B\delta_j\alpha_j}{1-B(1-\delta_j)}$ for $j=K,A$.
+Hours are $N=b\alpha_N/[b\alpha_N+(1-b)(1-s_K-s_A)]$.
+\item Market value is $V=Q_KK'+Q_AA'=I_K/\delta_K+I_A/\delta_A$, so
+$\displaystyle\frac VY=\frac{\alpha_K}{\rho+\delta_K}+\frac{\alpha_A}{\rho+\delta_A}$,
+constant along every path.
+\item $\ln(1+r_{t+1})=\ln(1+\rho)+\Delta\ln Y_{t+1}$. The real wage is $W=\alpha_NY/N$, so
+$\ln W$ moves one-for-one with $\ln Y$, and the labor share is constant at $\alpha_N$.
+\item With $x_t=(\ln K_t,\ln A_t)'$, $\alpha=(\alpha_K,\alpha_A)'$ and lowercase letters for logs,
+\begin{gather*}
+y_t=\alpha'x_t+\alpha_A\gamma_t+\alpha_N(z_t+\ln N),\\
+x_{t+1}=Mx_t+\begin{pmatrix}\delta_K\\ \delta_A\end{pmatrix}\big(\alpha_A\gamma_t+\alpha_Nz_t\big)
+-\begin{pmatrix}0\\ \delta_A\end{pmatrix}p_{A,t}+\text{const},\\
+M=\begin{pmatrix}1-\delta_K(1-\alpha_K)&\delta_K\alpha_A\\ \delta_A\alpha_K&1-\delta_A(1-\alpha_A)\end{pmatrix}.
+\end{gather*}
+The eigenvalues of $M$ are closed form ($\mu_{1,2}=\tfrac12[\mathrm{tr}M\pm((\mathrm{tr}\,M)^2-4\det M)^{1/2}]$).
+With $\delta_K=\delta_A=\delta$ they are $1-\delta$ and $1-\delta\alpha_N$.
+\end{enumerate}
+\end{proposition}
+
+The real interest rate and the real wage are therefore linear functionals of the AI
+technology paths:
+\begin{equation}
+\ln\frac{1+r_{t+1}}{1+r^*}=\alpha_A\Delta\gamma_{t+1}+\alpha'(x_{t+1}-x_t)\quad\text{(deviations from the no-shock path)}.
+\label{eq:rpath}
+\end{equation}
+
+\begin{proposition}[Same area, different timing]\label{prop:area}
+Let $\ln\Gamma$ rise by $\Delta_\Gamma$ and $\ln(1/P_A)$ by $\Delta_q$, along any paths.
+Then output rises in the long run by $\ln Y_\infty-\ln Y_\infty^*=\frac{\alpha_A}{\alpha_N}(\Delta_\Gamma+\Delta_q)$.
+The cumulative interest-rate deviation $\sum_{t\ge0}\big[\ln(1+r_{t+1})-\ln(1+r^*)\big]$
+equals the same amount, less any jump in $\ln Y_0$ (a disembodied shock that arrives at
+$t=0$ raises output on impact, and that windfall is not part of any ex-ante rate). The wage path is the output path. Embodied and disembodied progress
+of equal size move $r$ by the same total and differ only in timing.
+\end{proposition}
+
+For a surprise permanent step of size $\Delta$ at $t=0$, (\ref{eq:rpath}) gives
+$\ln\frac{1+r_{t+1}}{1+r^*}=\alpha'M^tf$ with
+\begin{equation*}
+f_{\text{dis}}=\alpha_A\Delta\begin{pmatrix}\delta_K\\ \delta_A\end{pmatrix},\qquad
+f_{\text{emb}}=\Delta\begin{pmatrix}0\\ \delta_A\end{pmatrix},\qquad
+\frac{\alpha'f_{\text{emb}}}{\alpha'f_{\text{dis}}}=\frac{\delta_A}{\alpha_K\delta_K+\alpha_A\delta_A}.
+\end{equation*}
+A disembodied step raises output immediately by $\alpha_A\Delta$. That gain is a
+\emph{windfall} (an unexpected realized return), so it never shows up in the ex-ante
+real rate, and only the accumulation that follows raises $r$. An embodied step raises
+nothing on impact. All of its effect comes through investment, so the ex-ante real rate
+jumps by more: 9.6 versus 7.8 percent in the calibration below. When the same total
+improvement arrives gradually and is anticipated (the S-curve), the direct term
+$\alpha_A\Delta\gamma_{t+1}$ in (\ref{eq:rpath}) raises expected growth under
+disembodied progress. Then $r$ rises sooner and more under disembodied progress, and the
+embodied response is a distributed lag of it with the same area.
+
+\paragraph{Calibration and comparison with pairing (i).} I set
+$\delta_j=(g_Z+d_j)/(1+g_Z)$, which gives $\delta_K=0.080$ and $\delta_A=0.212$. The initial
+balanced growth path is then identical to the one in Section~\ref{sec:trans} (the saving
+rates equal $(g+d_j)\times$capital/output exactly). The eigenvalues of $M$ are 0.943 and
+0.794. Figure~\ref{fig:cdcd} and Table~\ref{tab:cdcd} compare the exact solution with
+the quadratic-cost model solved numerically, using the curvature that gives the same
+$Q$-elasticity ($c_K=11.4$, $c_A=3.7$). The two are almost indistinguishable. The exact model is
+therefore a reliable analytical guide to the quadratic-cost dynamics when $\e=1$. Value/output is
+constant in the exact model and nearly constant in the quadratic one.
+
+\begin{table}[h]\centering\small
+\caption{20-fold S-curve fall in the cost of AI, $\e=1$: exact pairing (ii) versus pairing (i) with matched curvature.}\label{tab:cdcd}
+\input{table_cdcd.tex}
+\end{table}
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{figures/fig_cdcd.pdf}
+\caption{Pairing (ii), exact solution (solid) versus quadratic adjustment costs with matched curvature (dashed). Right panel: surprise permanent 20-fold step.}\label{fig:cdcd}
+\end{figure}
+
+\paragraph{Why CES does not inherit the exact solution.} The exact solution depends on
+each input's output elasticity being constant. With $\e\neq1$, AI's share
+$(1-\omega)\lambda^{1-\e}$ moves with the effective cost of AI, and so do the optimal saving rates. The
+script solves the CES economy with Cobb-Douglas accumulation numerically (the
+disembodied S-curve). With $\e=1.5$, $I_A/Y$ rises from 0.030 to 0.105, and with
+$\e=0.5$ it falls from 0.021 to 0.005. Pairing (i) is the natural choice for CES: it
+keeps the closed forms on the balanced growth path for every $\e$.
+
+\section{Pairing (i) with AI: transitions for embodied versus disembodied shocks}\label{sec:trans}
 
 The script \texttt{ai\_model.py} solves the perfect-foresight path with a Newton method
 on the stacked equilibrium conditions, with all variables detrended by $Z$. The
@@ -302,8 +478,20 @@ consistency of the AK threshold, and that every transition converges to the
 closed-form new path. Table~\ref{tab:checks} reports the largest error for each check.
 
 \begin{table}[h]\centering\scriptsize
-\caption{Verification: maximum absolute (or relative) errors.}\label{tab:checks}
+\caption{Verification, pairing (i) (\texttt{ai\_model.py}): maximum absolute (or relative) errors.}\label{tab:checks}
 \input{table_checks.tex}
+\end{table}
+
+For pairing (ii), \texttt{cdcd\_model.py} solves the nonlinear perfect-foresight
+equilibrium with a Newton method that does not impose constant saving rates, starting
+from saving rates 10 percent away from the closed form. It confirms that the solution
+has constant saving rates and hours, the closed-form $r$ path, constant $V/Y$, the
+analytic step responses $\alpha'M^tf$, Proposition~\ref{prop:area}, and the exact
+growth rate under permanent progress (Table~\ref{tab:checks2}).
+
+\begin{table}[h]\centering\scriptsize
+\caption{Verification, pairing (ii) (\texttt{cdcd\_model.py}).}\label{tab:checks2}
+\input{table_checks_cdcd.tex}
 \end{table}
 
 \section{Extensions}
@@ -320,6 +508,9 @@ growth-driven from discount-rate-driven valuation.
 \bibitem[Greenwood, Hercowitz and Krusell(1997)]{ghk1997}
 Greenwood, J., Z. Hercowitz and P. Krusell (1997). ``Long-Run Implications of
 Investment-Specific Technological Change.'' \emph{American Economic Review} 87(3): 342--362.
+\bibitem[Hercowitz and Sampson(1991)]{hercowitzsampson1991}
+Hercowitz, Z. and M. Sampson (1991). ``Output Growth, the Real Wage, and Employment
+Fluctuations.'' \emph{American Economic Review} 81(5): 1215--1237.
 \bibitem[Hayashi(1982)]{hayashi1982}
 Hayashi, F. (1982). ``Tobin's Marginal $q$ and Average $q$: A Neoclassical Interpretation.''
 \emph{Econometrica} 50: 213--224.
@@ -329,6 +520,9 @@ FEDS Working Paper 2000-05, Federal Reserve Board.
 \bibitem[Kiley(2004)]{kiley2004}
 Kiley, M.~T. (2004). ``Stock Prices and Fundamentals: A Macroeconomic Perspective.''
 \emph{Journal of Business} 77(4): 909--936.
+\bibitem[Lucas and Prescott(1971)]{lucasprescott1971}
+Lucas, R.~E. and E.~C. Prescott (1971). ``Investment under Uncertainty.''
+\emph{Econometrica} 39(5): 659--681.
 \end{thebibliography}
 
 \end{document}

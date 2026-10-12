@@ -62,3 +62,17 @@ Corrections to the draft above, after reading FEDS 2000-05:
 
 Possible next steps: calibrate e, d_A, gamma_q to data; nested task-based CES
 for labor; discount-rate (equity premium) experiments as in Section 3 of the paper.
+
+## Status (session 2, second request)
+The user says the published JoB article has two one-capital closed-form pairings:
+CES production + adjustment-cost function, and Cobb-Douglas production + Cobb-Douglas
+accumulation (K' = Abar K^(1-delta) I^delta). The published text was not available
+(JSTOR, not in Drive), so both were derived from scratch:
+- Pairing (i): closed forms on the BGP only (K/Y = alpha R^-e, V/Y ~ alpha/(r+d)^e).
+- Pairing (ii), with log utility: exact for any path. s_j = B delta_j alpha_j/(1-B(1-delta_j)),
+  V/Y = sum alpha_j/(rho+delta_j) (constant), 1+r' = (1+rho)Y'/Y, W = aN Y/N, and a
+  log-linear VAR in (ln K, ln A). Embodied and disembodied progress have the same
+  cumulative effect on ln(1+r); the timing differs (step versus S-curve reverses the ranking).
+- `cdcd_model.py`: closed form, a generic Newton check, matched-curvature comparison with
+  the quadratic model, and a CES + CD-accumulation counterexample.
+If the user supplies the published PDF, align notation and parameterization with it.
