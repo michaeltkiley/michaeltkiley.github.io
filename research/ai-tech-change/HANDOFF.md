@@ -145,3 +145,13 @@ everywhere (capital_cases default changed). The annual OLG is solved by Levenber
 from the Ramsey path; its long run is read at T-100 (truncation artifact in the final cohorts).
 Run: `python3 capital_cases.py; python3 capital_cases.py --equal-d-noadj; python3 saving_models.py`
 (about 6 minutes), then pdflatex x3.
+
+## Status (session 2): Ramsey-only first-decade summary
+`ramsey_variants.py` + `ai_r_decade_note.tex/.pdf` (6 pages). Ramsey only. Household switches: IES (theta),
+internal habits h, hand-to-mouth share. Equal depreciation, adjustment costs c = 1/x (c_A calibrated for equal
+convergence speed: 13.1 vs 12.3, which is nearly the same as equal c). Shocks: S-curve (cosine, complete by year 10)
+and jump, 10% long-run output gain. Key identity: sum of ln(1+r) deviations over years 1-10 = theta * [ln c_10 - ln c_0]
+(detrended Ricardian consumption). Findings: embodiment sets the sign/timing; labor share (TANK) moves the decade
+average by <= 0.1 pp; IES scales responses by ~1.7x (0.5) and ~3.2x (0.2); habits matter only for surprise disembodied
+jumps (artifact-prone); adjustment-cost LEVEL matters more than how it is matched across K and A.
+Not yet done: milder habits in the main grid, hours margin, nominal rigidities.
