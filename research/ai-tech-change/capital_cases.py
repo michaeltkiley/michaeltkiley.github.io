@@ -13,7 +13,7 @@ Disembodied progress: Gamma_j (production).  Embodied progress: P_j falls (accum
 Experiments, each for AI and regular capital, embodied and disembodied, every shock
 sized for the same 10% long-run output gain:
   jump     surprise permanent level jump at t = 0
-  S-curve  logistic level shift centered on year 10, announced at t = 0
+  S-curve  smooth level shift 0.5(1 - cos(pi t/10)), announced at t = 0, complete by year 10
   mixed    half of the shift as a surprise jump at t = 0, half as the S-curve
 
 (A permanent increase in the growth rate of AI technology is excluded: with e > 1 it
@@ -44,10 +44,10 @@ CAPS = ("K", "A")
 # (Kiley 2000's "moderate" case)
 ADJ = {j: 1.0 / (BASE["g_Z"] + BASE["d"][j]) for j in CAPS}
 # variant settings (set by configure()): adjustment costs on/off and output-file suffix
-OPTS = dict(adj=True, suffix="", label="adjustment costs", scurve="logistic", T_end=10)
+OPTS = dict(adj=True, suffix="", label="adjustment costs", scurve="ramp", T_end=10)
 
 
-def configure(dA=0.20, adj=True, suffix="", label=None, scurve="logistic", T_end=10):
+def configure(dA=0.20, adj=True, suffix="", label=None, scurve="ramp", T_end=10):
     """Set AI depreciation, adjustment costs and the S-curve; recompute dependent calibration.
 
     scurve = "logistic": centered on year `mid` (baseline note).
@@ -300,8 +300,8 @@ def run(T=250):
 
 CASES = ("jump", "mixed", "scurve")
 TITLES = {"jump": "Surprise permanent jump at t = 0",
-          "mixed": "Half jump at t = 0, half S-curve (year 10)",
-          "scurve": "S-curve centered on year 10, announced at t = 0"}
+          "mixed": "Half jump at t = 0, half S-curve (complete by year 10)",
+          "scurve": "S-curve from t = 0, complete by year 10"}
 LINES = [(("K", "dis"), "#1f5f9e", "-", "regular capital, disembodied"),
          (("K", "emb"), "#1f5f9e", "--", "regular capital, embodied"),
          (("A", "dis"), "#c0512a", "-", "AI, disembodied"),
@@ -369,7 +369,7 @@ def main():
     summary_table(out)
     C = [r"\begin{tabular}{lc}\toprule Check & max abs. error\\\midrule"]
     for k, v in checks.items():
-        C.append(f"{k} & {v:.1e}\\\\")
+        C.append(f"{k.replace('%', chr(92) + '%')} & {v:.1e}\\\\")
     C.append(r"\bottomrule\end{tabular}")
     with open(os.path.join(HERE, f"table_capital_checks{OPTS['suffix']}.tex"), "w") as f:
         f.write("\n".join(C) + "\n")
@@ -393,6 +393,4 @@ if __name__ == "__main__":
     if "--equal-d-noadj" in sys.argv:
         configure(dA=BASE["d"]["K"], adj=False, suffix="_eqd_noadj", scurve="ramp", T_end=10,
                   label="d_A = d_K = 0.066, no adjustment costs")
-        TITLES.update(mixed="Half jump at t = 0, half S-curve (complete by year 10)",
-                      scurve="S-curve from t = 0, complete by year 10")
     main()

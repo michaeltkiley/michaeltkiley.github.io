@@ -9,7 +9,7 @@
 \setlength{\parskip}{4pt}
 
 \title{AI Capital versus Regular Capital:\\
-Output, Real Interest Rates, Wages and the Labor Share\\after a Jump, an S-Curve, or Both}
+Output, Real Interest Rates, Wages and the Labor Share,\\ and the Role of the Saving Model}
 \author{Research note (draft)}
 \date{October 2026}
 
@@ -17,201 +17,333 @@ Output, Real Interest Rates, Wages and the Labor Share\\after a Jump, an S-Curve
 \maketitle
 
 \begin{abstract}
-\noindent This note compares how output, the real interest rate, the real wage and the
-labor share respond to technical progress in AI capital and in regular capital.
-Regular capital and labor form a Cobb-Douglas bundle, and AI capital substitutes for
-that bundle ($\e=1.5$). Progress is either disembodied (in the production function) or
-embodied (a lower price of new capital in the accumulation equation). Both capital
-stocks face the same moderate adjustment costs. Three timing patterns are compared: a
-surprise permanent jump; an S-curve centered on year 10 and known at year 0; and a mix
-in which half the improvement arrives as a jump and half along the S-curve.
-Elasticities are the same throughout, and every shock raises long-run output by the
-same 10 percent. In the long run, which is in closed form, AI progress raises the wage by 7.4
-percent and lowers the labor share by 1.8 points. Regular-capital progress raises the
-wage by the full 10 percent and leaves the labor share unchanged. In the short run, the
-interest rate rises most for embodied AI progress after a jump, and most for
-disembodied regular-capital progress along an S-curve. Output and wage gains arrive
-fastest under disembodied progress. Output converges faster for AI than for regular
-capital, but AI wages lag AI output. The mixed case lies close to the average of the
-two pure cases.
+\noindent How does technical progress in AI capital move output, the real interest rate,
+the real wage and the labor share, compared with progress in regular capital? Regular capital
+and labor form a Cobb-Douglas bundle, and AI capital substitutes for that bundle.
+Progress is either disembodied (in the production function) or embodied (a lower price
+of new capital in the accumulation equation). It arrives as a surprise jump, as an
+S-curve complete by year 10, or half and half. Every shock is a one-time level shift
+that raises long-run output by the same 10 percent. Under the standard Ramsey saving
+model, the long run is in closed form. AI progress raises the wage by
+$1/[1+(1-a)(\e-1)]$ of the output gain (74 percent here) and lowers the labor share,
+while regular-capital progress raises the wage one-for-one. In the short run, the
+real-rate response depends much more on whether progress is embodied and on its timing than on
+substitutability. Substitutability matters for $r$ only after a surprise
+disembodied jump. That conclusion depends on the Ramsey assumption of perfectly
+elastic long-run capital supply. Under Solow (fixed saving), Diamond OLG,
+annual-frequency OLG and perpetual-youth saving, regular-capital progress still leaves
+long-run $r$ unchanged. AI progress, however, changes long-run $r$ exactly when
+$\e\neq1$. For $\e=1.5$, $r$ rises by 1.1 percentage points under Solow, 0.4 under Diamond, 0.1 under
+the annual OLG and essentially zero under Ramsey.
 \end{abstract}
+
+\section{Questions and main findings}
+
+The note asks three questions:
+\begin{enumerate}
+\item Do AI and regular-capital progress affect the interest rate, wages and the labor
+share differently, holding the long-run output gain fixed?
+\item How much of the difference comes from AI's substitutability for labor and capital?
+\item How much depends on the saving model, given that the Ramsey Euler equation makes
+long-run capital supply perfectly elastic?
+\end{enumerate}
+Main findings:
+\begin{itemize}
+\item \emph{Wages and the labor share} differ sharply between AI and regular-capital
+progress. The difference comes from substitutability, and it holds in every saving model.
+\item \emph{The real interest rate} under Ramsey depends mainly on whether progress is
+embodied and on its timing. Substitutability matters little, except after surprise
+disembodied jumps.
+\item \emph{Long-run interest rates} respond to AI progress, and through substitutability,
+once saving is not perfectly elastic. Regular-capital progress inside the Cobb-Douglas
+bundle never moves long-run $r$.
+\end{itemize}
 
 \section{Model}
 
 Notation follows \citet{kiley2000}. Production is
 \begin{equation*}
 X=(\Gamma_KK)^a(ZN)^{1-a},\qquad
-Y=\Big[\omega^{1/\e}X^{\frac{\e-1}{\e}}+(1-\omega)^{1/\e}(\Gamma_AA)^{\frac{\e-1}{\e}}\Big]^{\frac{\e}{\e-1}},\qquad \e=1.5 ,
+Y=\Big[\omega^{1/\e}X^{\frac{\e-1}{\e}}+(1-\omega)^{1/\e}(\Gamma_AA)^{\frac{\e-1}{\e}}\Big]^{\frac{\e}{\e-1}},
+\qquad \e=1.5\ \text{(baseline)}.
 \end{equation*}
-so AI capital $A$ substitutes for both labor and regular capital $K$. Capital is
-measured in efficiency units and accumulates as $K_j'=(1-d_j)K_j+I_j/P_j$, where $P_j$ is the
-output price of a new efficiency unit. Adjustment costs, following \citet{kiley2004}, are
-\begin{equation*}
-P_j\,\tfrac{c_j}{2}\,(i_j-x_j)^2K_j,\qquad i_j=\frac{I_j}{P_jK_j},\qquad c_j=\frac1{x_j}.
-\end{equation*}
-They vanish at the balanced-growth investment rate $x_j=g+d_j$, and they give both stocks the same
-unit elasticity of investment with respect to $Q_j/P_j$ (the paper's ``moderate'' case).
-\emph{Disembodied} progress raises $\Gamma_j$, which improves the installed stock.
-\emph{Embodied} progress lowers $P_j$, which improves only new investment. Utility is
-logarithmic and hours are fixed.
+Capital $j\in\{K,A\}$ is measured in efficiency units: $K_j'=(1-d_j)K_j+I_j/P_j$.
+\emph{Disembodied} progress raises $\Gamma_j$, which improves installed capital.
+\emph{Embodied} progress lowers $P_j$, which improves only new investment. Hours are
+fixed and trend growth is $g=1.5$ percent.
 
-\paragraph{Calibration.} $a=0.282$, $d_K=0.066$, $d_A=0.20$, trend growth $g=1.5$ percent,
-initial $r=7.5$ percent, initial AI income share 3 percent, initial labor share 69.6 percent.
+\paragraph{Experiments.} Each is a one-time, permanent level shift in $\Gamma_j$ or $1/P_j$,
+announced at $t=0$, with three timings:
+\begin{itemize}
+\item a \emph{jump} at $t=0$;
+\item an \emph{S-curve}, $S_t=\tfrac12[1-\cos(\pi t/10)]$, which starts at $t=0$ and is complete by year 10;
+\item \emph{half/half}: half the log improvement as a jump, half along the S-curve.
+\end{itemize}
+Elasticities are the same in every experiment. Each shock is scaled \emph{within each
+model} so that long-run output, relative to the pre-shock path, rises by 10 percent.
+
+\paragraph{Calibration.} $a=0.282$, $d_K=0.066$, initial $r=7.5$ percent, initial AI
+income share 3 percent, initial labor share 69.6 percent. Two accumulation settings are
+used:
+\begin{itemize}
+\item[(A)] $d_A=0.20$, with the adjustment costs of \citet{kiley2004},
+$P_j\tfrac{c_j}{2}(i_j-x_j)^2K_j$, where $i_j=I_j/(P_jK_j)$, $x_j=g+d_j$ and $c_j=1/x_j$, so that
+both stocks have a unit elasticity of investment to $Q$;
+\item[(B)] $d_A=d_K=0.066$ and no adjustment costs. This isolates substitutability from
+differences in depreciation and adjustment costs.
+\end{itemize}
+
+\section{Closed-form long run}
 
 \begin{proposition}[Balanced growth path]\label{prop:bgp}
-With constant technology levels, $Q_j=P_j$, $1+r=(1+g)/B$ and $u_j=r+d_j$. Let
-$\lambda_j=P_ju_j/\Gamma_j$ be the cost of an effective unit of capital $j$. Then
+With constant technology levels and real rate $r$, $Q_j=P_j$ and $u_j=r+d_j$. With
+$\lambda_j=P_ju_j/\Gamma_j$,
 \begin{gather*}
-s_A=(1-\omega)\lambda_A^{1-\e},\qquad \text{labor share}=(1-a)(1-s_A),\qquad
-P_X=\Big(\frac{1-s_A}{\omega}\Big)^{\frac{1}{1-\e}},\\
+s_A=(1-\omega)\lambda_A^{1-\e},\quad
+\text{labor share}=(1-a)(1-s_A),\quad
+P_X=\Big(\frac{1-s_A}{\omega}\Big)^{\frac1{1-\e}},\\
 \ln\frac WZ=\frac{\ln P_X}{1-a}-\frac{a}{1-a}\ln\lambda_K+\text{const},\qquad
 \ln\frac YZ=\ln\frac WZ-\ln(1-s_A)+\text{const}.
 \end{gather*}
 \end{proposition}
 
-\begin{proposition}[Long run, same output gain $\gamma_Y$]\label{prop:lr}
-Disembodied and embodied progress have the same long-run effects ($\ln\Gamma_j=-\ln P_j$),
-and the interest rate returns to its initial level.
-\begin{enumerate}
-\item \emph{Regular capital}: $\ln(\Gamma_K/P_K)=\frac{1-a}{a}\gamma_Y$, $\Delta\ln W=\gamma_Y$, and the labor share is unchanged.
-\item \emph{AI capital}: $\Delta\ln W=\dfrac{\gamma_Y}{1+(1-a)(\e-1)}$ and
+\begin{proposition}[Same output gain $\gamma_Y$, given $r$]\label{prop:lr}
+Disembodied and embodied progress have the same long-run effects ($\ln\Gamma_j=-\ln P_j$).
+\emph{Regular capital}: $\ln(\Gamma_K/P_K)=\frac{1-a}{a}\gamma_Y$, $\Delta\ln W=\gamma_Y$, and the labor share is unchanged.
+\emph{AI}: $\Delta\ln W=\dfrac{\gamma_Y}{1+(1-a)(\e-1)}$ and
 $\Delta\ln(\text{labor share})=-\dfrac{(1-a)(\e-1)}{1+(1-a)(\e-1)}\gamma_Y$.
-\end{enumerate}
 \end{proposition}
-\emph{Proof.} By Proposition~\ref{prop:bgp},
-$\ln(Y/Z)=\big[\frac{1}{(1-a)(1-\e)}-1\big]\ln(1-s_A)-\frac{a}{1-a}\ln\lambda_K+$const, and
-$\ln W=\ln Y+\ln(1-s_A)$. Regular-capital progress moves only $\lambda_K$, and AI progress
-moves only $s_A$. \qed
+Under Ramsey, $r$ is pinned at $(1+g)/B-1$, so Proposition~\ref{prop:lr} gives the long run
+directly. For $\gamma_Y=10$ percent, regular-capital technology rises 29 percent and AI
+technology 3.4-fold. The wage rises 10.0 percent (regular capital) or 7.4 percent (AI), and
+under AI progress the labor share falls from 69.6 to 67.8 percent.
 
-For $\gamma_Y=10$ percent, regular-capital technology rises 29 percent, against 3.4-fold
-for AI, because AI starts small. AI's income share rises from 3.0 to 5.5 percent. In the long
-run, AI progress raises the wage 7.4 percent and lowers the labor share from 69.6 to
-67.8 percent. Regular-capital progress raises the wage 10 percent and leaves the labor share unchanged.
+\section{Dynamics under Ramsey}
 
-\section{Results}
-
-All experiments start on the initial balanced growth path. In the \emph{jump},
-technology rises permanently and unexpectedly at $t=0$. In the \emph{S-curve}, a logistic
-rise centered on year 10 is announced at $t=0$. In the \emph{half/half} case, half the
-log improvement arrives as a jump at $t=0$ and the other half along the same S-curve,
-also announced at $t=0$. Each is solved as a nonlinear perfect-foresight problem.
-Output (net of adjustment costs) and wages are log deviations from the pre-shock path,
-and the labor share is relative to gross output.
+\subsection{Setting A: AI depreciates faster and both stocks face adjustment costs}
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{figures/fig_capital_cases.pdf}
-\caption{Same 10\% long-run output gain in every experiment. Dotted lines: initial $r$ and long-run output gain.}\label{fig:main}
+\caption{Setting A ($d_A=0.20$, adjustment costs). Same 10\% long-run output gain.}\label{fig:A}
 \end{figure}
 
 \begin{table}[h]\centering\scriptsize
-\caption{Summary. $r_1$ is the real rate between years 0 and 1. All shocks raise long-run output by 10\%.}\label{tab:main}
+\caption{Setting A. $r_1$ is the rate between years 0 and 1. Output and wages are log deviations (percent) from the pre-shock path.}\label{tab:A}
 \input{table_capital_cases.tex}
 \end{table}
 
-\subsection*{Output}
 \begin{itemize}
-\item \emph{Jump.} Disembodied progress raises output on impact, by 6.9 percent for regular capital and 4.1 for AI.
-Embodied progress cannot raise output until new capital is installed, and net output
-dips on impact (by 0.4 percent for regular capital and 1.5 for AI) because the
-investment boom incurs adjustment costs. AI output then catches up quickly. AI capital
-depreciates fast and has low adjustment costs per unit of investment, so after 10 years
-output is up 7.8 (AI, disembodied) and 6.6 (AI, embodied), against 8.3 and 4.3 for
-regular capital.
-\item \emph{S-curve.} Output tracks the innovation. At year 20 it is up 8.1 (regular,
-disembodied), 7.8 (AI, disembodied), 5.8 (AI, embodied) and 3.8 percent (regular,
-embodied). Embodied regular-capital progress is the slowest to raise output in every timing pattern.
-\item \emph{Half/half.} Output jumps by about half the pure-jump amount and then follows the S-curve.
+\item \emph{Real rate.} After a jump, $r$ rises most for embodied AI (8.7 percent), then
+embodied regular capital (8.1), disembodied AI (8.05) and disembodied regular capital
+(7.7). Along the S-curve it peaks earlier and higher under disembodied progress: 8.8
+(regular) and 8.5 (AI) around years 5--6, against 8.0 and 8.2 around year 9 under embodied
+progress. The half/half case lies between the two.
+\item \emph{Output.} Disembodied progress raises output on impact (6.9 percent regular,
+4.1 AI). An embodied jump briefly \emph{lowers} net output (by 0.4 and 1.5 percent), because
+the investment boom absorbs resources in adjustment costs. AI output catches up quickly
+because AI capital turns over fast.
+\item \emph{Wages and the labor share.} AI wages lag AI output, because the AI share rises. The
+labor share moves only under AI progress.
 \end{itemize}
 
-\subsection*{Real interest rate}
+\subsection{Setting B: equal depreciation and no adjustment costs}
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{figures/fig_capital_cases_eqd_noadj.pdf}
+\caption{Setting B ($d_A=d_K=0.066$, no adjustment costs).}\label{fig:B}
+\end{figure}
+
+\begin{table}[h]\centering\scriptsize
+\caption{Setting B. Columns as in Table~\ref{tab:A}.}\label{tab:B}
+\input{table_capital_cases_eqd_noadj.tex}
+\end{table}
+
+Without adjustment costs, investment responds faster and $r$ moves more.
 \begin{itemize}
-\item \emph{Jump.} The rate jumps at once and then declines. On impact the ranking is
-AI embodied (8.7 percent), regular embodied (8.1), AI disembodied (8.05) and regular
-disembodied (7.7). Embodied progress raises $r$ more because the output gain requires an
-investment boom first. AI raises $r$ more than
-regular capital because a larger share of its long-run gain must be accumulated.
-Disembodied AI delivers 3.0 of its 7.4 percent wage gain on impact, against 7.0 of 10
-percent for regular capital. Over 40 years,
-the excess return adds up to about 9 percentage points in both embodied cases, against 4.7 for disembodied AI and 2.7
-for disembodied regular capital.
-\item \emph{S-curve.} The rate barely moves at announcement. Under disembodied progress it
-rises ahead of the innovation and peaks with it (year 10--11): 8.3 percent for regular
-capital and 8.15 for AI. Under embodied progress it peaks later (years 15--16) and lower,
-at 7.9 for regular capital and 8.0 for AI, but the response lasts longer. The 40-year
-cumulative effects are similar, 7.4--9.4 percentage points.
-\item \emph{Half/half.} The rate has two humps, an impact response from the jump and a
-second peak as the S-curve arrives (years 10--14). For disembodied progress the second
-peak is larger (7.97 regular, 7.94 AI). For embodied AI the impact response is larger (8.00).
-Each path is close to the average of the pure jump and pure S-curve paths. For example,
-$r_1=7.63$ for disembodied regular capital, against an average of 7.63.
+\item \emph{Embodied regular-capital progress} has the largest impact effect, 10.4
+percent after a jump. Regular capital is a much larger stock than AI, so it requires
+the largest investment swing.
+\item \emph{An anticipated embodied S-curve} produces a two-phase response. Firms wait
+for cheaper capital, so $r$ first \emph{falls} (to 5.8 percent for regular capital and
+6.9 for AI) and output and wages dip. Then an investment boom pushes $r$ to 9.4 (regular)
+or 8.8 percent (AI) at year 10.
+\item \emph{Capital adjusts within a year}, so after an AI jump the labor share falls
+almost entirely by year 1.
 \end{itemize}
 
-\subsection*{Real wage}
+\subsection{How much does substitutability matter for $r$?}
+
+Table~\ref{tab:eps} varies only AI's elasticity in Setting B, from 0.75 (near the
+complements limit, where a 10 percent output gain needs a roughly 150-fold improvement
+in AI technology) to 2. Comparing AI and regular capital directly confounds
+substitutability with AI's small initial share. This experiment does not.
+
+\begin{table}[h]\centering\scriptsize
+\caption{Ramsey, Setting B, AI progress, varying $\e$. ``40-yr excess'' is $\sum_{t<40}[\ln(1+r_{t+1})-\ln 1.075]$ in percentage points.}\label{tab:eps}
+\input{table_saving_epsgrid.tex}
+\end{table}
+
 \begin{itemize}
-\item \emph{Long run}: 10.0 percent for regular capital and 7.4 percent for AI (Proposition~\ref{prop:lr}).
-\item \emph{Jump.} Disembodied progress raises the wage on impact, by 7.0 percent for
-regular capital and 3.0 for AI. Embodied progress starts from zero. By year 10 the
-wage is up 8.4 (regular, disembodied), 5.5 (AI, disembodied), 4.5 (AI, embodied) and
-4.4 percent (regular, embodied).
-\item \emph{S-curve.} The wage follows the innovation, and much more slowly when progress is
-embodied. At year 10 it is up 3.7 percent (regular, disembodied), 2.1 (AI, disembodied), 0.8 (AI,
-embodied) and 0.6 (regular, embodied). At year 20 the figures are 8.1, 5.4, 4.1 and 4.0.
-\item \emph{Half/half.} Wages jump by half the disembodied pure-jump amount (3.5 regular,
-1.4 AI). By year 10 they are up 6.0 (regular, disembodied), 3.6 (AI, disembodied), 2.5 (AI,
-embodied) and 2.5 percent (regular, embodied).
-\item \emph{AI wages lag AI output.} Because the AI share is rising, wages grow more slowly than
-output under AI progress. At year 10 of the jump, AI output is up 7.8 percent but wages only
-5.5 percent. Under regular-capital progress the two move together.
+\item \emph{Along an S-curve and for embodied shocks}, $\e$ barely moves $r$. Peaks and
+troughs change by 0.1--0.4 points across the whole range.
+\item \emph{After a surprise disembodied jump}, $\e$ matters. $r_1$ rises from 8.0 to 9.0
+percent, and the 40-year cumulative excess return from 2.8 to 10.2 points. With higher $\e$,
+less of the output gain arrives on impact, more must come from accumulation, and expected
+consumption growth is higher.
+\item \emph{Wages and the labor share} are highly sensitive to $\e$. The long-run wage gain
+falls from 12.2 to 5.8 percent, and the labor share from 71.2 to 66.8 percent.
+\end{itemize}
+At $\e=1$, disembodied AI and disembodied regular-capital progress produce identical
+paths, as theory implies.
+
+\section{The saving model}
+
+\paragraph{Why Ramsey pins $r$.} With an infinitely lived household, the steady-state
+Euler equation fixes $1+r=(1+g)/B$, so long-run capital supply is perfectly
+elastic. Saving adjusts to whatever is needed to deliver that rate, and no level shift
+in technology can move long-run $r$. The closed-form CES-pairing models of the
+companion note have constant saving \emph{rates}, but they too pin $r$ by $B$ and $g$.
+
+\paragraph{Alternatives} (all with Setting B, $\e=1.5$ unless noted, and recalibrated to the same initial path):
+\begin{itemize}
+\item \emph{Solow}: a fixed gross saving rate $s$.
+\item \emph{Perpetual youth} \citep{blanchard1985,yaari1965}: death probability $p=0.025$
+(a 40-year horizon), annuities, log utility and flat labor income, so that
+$C=[1-B(1-p)](A+H)$, where $H$ is human wealth discounted at $(1+r)/(1-p)$. With $p=0$ this is Ramsey.
+\item \emph{Annual OLG}: 60 cohorts (ages 20--79) who work for 45 years with flat earnings, log
+utility and no bequests. Cohorts alive at $t=0$ hold their steady-state wealth,
+revalued by the shock.
+\item \emph{Diamond OLG} \citep{diamond1965}: two 30-year periods, with the young saving
+$B_L/(1+B_L)$ of wages. Long run only.
 \end{itemize}
 
-\subsection*{Labor share}
+\begin{proposition}[Long-run interest rate]\label{prop:saving}
+In every model, the capital share is $1-(1-a)(1-s_A)$ and wealth relative to output is
+(capital share)$/(r+d)$. Long-run $r$ solves:
+\begin{align*}
+\text{Ramsey:}&\quad 1+r=(1+g)/B;\\
+\text{Solow:}&\quad (g+d)\,\frac{\text{capital share}}{r+d}=s;\\
+\text{Diamond:}&\quad r_L+d_L=(1+g)^L\,\frac{\text{capital share}}{s_y\cdot\text{labor share}};\\
+\text{Annual OLG, perpetual youth:}&\quad \text{household wealth}(r)\cdot\text{labor share}=(1+r)\,\frac{\text{capital share}}{r+d},
+\end{align*}
+with household wealth per unit of labor income in closed form for each (a 60-term sum for the
+OLG; a geometric sum for perpetual youth). With a Cobb-Douglas bundle, regular-capital
+progress leaves the capital share unchanged at every $r$, so it never changes long-run $r$. AI
+progress changes the capital share if and only if $\e\neq1$. It then raises $r$ if $\e>1$ and
+lowers it if $\e<1$, in every model where capital supply is not perfectly elastic.
+\end{proposition}
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{figures/fig_saving_longrun.pdf}
+\caption{Long-run effects of AI progress by saving model and elasticity (same 10\% output gain).}\label{fig:lr}
+\end{figure}
+
+\begin{table}[h]\centering\scriptsize
+\caption{Long run by saving model. The shock is the log improvement in AI (or regular-capital) technology needed for a 10\% output gain.}\label{tab:lr}
+\input{table_saving_longrun.tex}
+\end{table}
+
+\paragraph{Long-run results (Table~\ref{tab:lr}, Figure~\ref{fig:lr}).}
 \begin{itemize}
-\item \emph{Regular capital}: essentially unchanged throughout, within 0.05 points.
-\item \emph{AI}: falls 1.8 points to 67.8 percent. After a disembodied jump, about 60 percent of
-the fall happens on impact. After an embodied jump it happens as AI capital is installed
-(68.2 percent at year 10). Along the S-curve it tracks the innovation, at 68.9 percent
-(disembodied) or 69.4 percent (embodied) in year 10. In the half/half case, half
-the disembodied fall happens on impact (to 69.2 percent).
+\item \emph{Regular-capital progress} leaves $r$ unchanged in every model, and wages rise one-for-one with output.
+\item \emph{AI progress with $\e=1.5$} raises $r$ by 0 (Ramsey), 0.04 (perpetual youth), 0.11
+(annual OLG), 0.44 (Diamond) and 1.08 points (Solow). At $\e=2$ the figures are 0, 0.06, 0.18,
+0.89 and 1.99. At $\e=0.75$, $r$ falls in every model except Ramsey.
+\item \emph{The less elastic the saving, the more the AI shock must deliver and the less
+labor gets.} With the same 10 percent output gain, the required AI improvement rises from
+3.4-fold (Ramsey) to 4.7-fold (Solow) and 5.7-fold (Diamond). The wage gain falls from 7.4 to
+6.6 and 6.1 percent.
+\item \emph{Why the two OLG models differ.} Life-cycle saving in the annual OLG is very
+elastic to $r$: $B(1+r)/(1+g)\approx0.995$, so a small rise in $r$ calls forth much more
+saving. Its long-run responses are therefore close to Ramsey. In the Diamond model, saving
+out of wages makes the proportional change in the 30-year return larger, but compounding
+over the period translates it into a moderate change in the annual rate. Perpetual youth
+with flat labor income and a 40-year horizon stays close to Ramsey.
+\end{itemize}
+
+\begin{figure}[p]\centering
+\includegraphics[width=\textwidth]{figures/fig_saving_trans_A.pdf}\\[4pt]
+\includegraphics[width=\textwidth]{figures/fig_saving_trans_K.pdf}
+\caption{Transitions by saving model, Setting B, $\e=1.5$. Top: AI progress. Bottom: regular-capital progress.}\label{fig:trans}
+\end{figure}
+
+\paragraph{Transitions (Figure~\ref{fig:trans}; full table in the appendix).}
+\begin{itemize}
+\item \emph{Perpetual youth and the annual OLG track Ramsey closely} (within about 0.1 point
+for $r$), apart from the small permanent rise in $r$ after AI progress.
+\item \emph{Solow amplifies and prolongs the AI response, and makes it permanent.} After
+a jump, $r_1$ is 9.5 percent (disembodied) or 10.4 percent (embodied), against 8.8 and 9.5
+under Ramsey. Along the S-curve it peaks at 9.4 (disembodied) or 10.0 (embodied), against
+8.35 and 8.8. Then $r$ converges to 8.6 rather than 7.5 percent. Wages rise more slowly.
+\item \emph{For regular-capital progress} the saving model matters only in the transition.
+Solow gives larger embodied swings (S-curve trough 5.4 and peak 9.9 percent), and $r$
+returns to 7.5 percent.
+\item \emph{The embodied-anticipation dip in $r$} appears under every saving model.
 \end{itemize}
 
 \section{Summary}
-With the same elasticities and the same long-run output gain:
+
 \begin{enumerate}
-\item AI progress delivers about three-quarters of the wage gain of regular-capital
-progress and lowers the labor share. Regular-capital progress leaves the labor share
-unchanged. These long-run results are in closed form and do not depend on whether
-progress is embodied or disembodied.
-\item Output gains arrive fastest under disembodied progress. Under embodied AI progress
-they arrive faster than under embodied regular-capital progress, because AI capital
-turns over quickly. Embodied jumps briefly lower net output while the investment boom
-absorbs resources.
-\item The interest rate rises temporarily in every case. A surprise jump raises it most
-when progress is embodied and in AI. An anticipated S-curve raises it most, and soonest,
-when progress is disembodied. Embodied progress produces a later, smaller but more
-persistent rise.
-\item AI wages lag AI output, and embodied progress delays wage gains by roughly five to ten
-years compared with disembodied progress.
-\item A mix of a jump and an S-curve gives approximately the average of the two pure
-responses, so the timing patterns can be combined roughly linearly.
+\item With the same long-run output gain, AI progress raises wages by about three-quarters as much as
+regular-capital progress and lowers the labor share. This holds in closed form, for
+embodied and disembodied progress alike, and in every saving model. Less elastic saving
+widens the gap.
+\item Under Ramsey, the real-rate response depends mainly on whether progress is embodied and
+on its timing: jumps versus anticipated S-curves, and the wait-for-cheaper-capital
+dip. Substitutability matters only after surprise disembodied jumps.
+\item The Ramsey result that substitutability barely moves $r$ comes from perfectly
+elastic long-run capital supply. With fixed saving (Solow) or saving out of wages
+(Diamond), AI progress with $\e>1$ raises long-run $r$ permanently, by up to 2 points at
+$\e=2$. Regular-capital progress does not. Annual life-cycle (OLG) and perpetual-youth
+saving are elastic enough that the effect is small, 0.1--0.2 points.
 \end{enumerate}
 
 \appendix
-\section{Verification}
-\texttt{capital\_cases.py} produces all results. It checks that the closed-form balanced
-growth path satisfies the equilibrium conditions, that every experiment (jump, half/half, S-curve) converges to
-the 10 percent output gain, and that long-run wages match Proposition~\ref{prop:lr}.
-Newton residuals are below $10^{-10}$.
+\section{Transitions by saving model}
+\begin{table}[h]\centering\tiny
+\caption{Transitions by saving model, Setting B, $\e=1.5$. ``Long run'' $r$ is the closed form of Proposition~\ref{prop:saving}.}
+\input{table_saving_trans.tex}
+\end{table}
 
-\begin{table}[h]\centering\scriptsize
-\input{table_capital_checks.tex}
+\section{Computation and verification}
+All results are reproduced by \texttt{capital\_cases.py} (Settings A and B, run with the
+\texttt{-{}-equal-d-noadj} switch) and \texttt{saving\_models.py} (saving models and the
+elasticity grid). Each transition is a nonlinear perfect-foresight solve of the full
+equilibrium.
+\begin{itemize}
+\item Ramsey, Solow and perpetual youth use Newton's method on the capital paths, with
+residuals below $10^{-10}$.
+\item The annual OLG uses Levenberg-Marquardt started from the Ramsey solution. Plain
+Newton overshoots because life-cycle saving is very sensitive to returns. Residuals are
+below $10^{-9}$. The OLG is solved over 300 years and its long run is read at year 200, because the final
+cohorts carry a horizon-truncation artifact.
+\end{itemize}
+Further checks:
+\begin{itemize}
+\item Perpetual youth with $p=0$ reproduces the Euler-equation Ramsey solver.
+\item Steady-state OLG household wealth equals the value of capital.
+\item Every experiment converges to the 10 percent output gain and to the closed-form long-run $r$.
+\item Long-run wages match Proposition~\ref{prop:lr}.
+\end{itemize}
+
+\begin{table}[h]\centering\tiny
+\caption{Verification, saving models (largest errors).}
+\input{table_saving_checks.tex}
 \end{table}
 
 \begin{thebibliography}{9}
+\bibitem[Blanchard(1985)]{blanchard1985}
+Blanchard, O.~J. (1985). ``Debt, Deficits, and Finite Horizons.'' \emph{Journal of Political Economy} 93(2): 223--247.
+\bibitem[Diamond(1965)]{diamond1965}
+Diamond, P.~A. (1965). ``National Debt in a Neoclassical Growth Model.'' \emph{American Economic Review} 55(5): 1126--1150.
 \bibitem[Kiley(2000)]{kiley2000}
 Kiley, M.~T. (2000). ``Stock Prices and Fundamentals in a Production Economy.''
 FEDS Working Paper 2000-05, Federal Reserve Board.
 \bibitem[Kiley(2004)]{kiley2004}
 Kiley, M.~T. (2004). ``Stock Prices and Fundamentals: A Macroeconomic Perspective.''
 \emph{Journal of Business} 77(4): 909--936.
+\bibitem[Yaari(1965)]{yaari1965}
+Yaari, M.~E. (1965). ``Uncertain Lifetime, Life Insurance, and the Theory of the Consumer.''
+\emph{Review of Economic Studies} 32(2): 137--150.
 \end{thebibliography}
 \end{document}

@@ -135,3 +135,13 @@ Long run: closed-form fixed points in r. Key result: Delta r = 0 for regular-cap
 in every model, and for AI progress when e = 1; for AI with e = 1.5 it is Solow +1.09 pp,
 Diamond +0.44, PY +0.04, Ramsey 0. Outputs: fig_saving_longrun, fig_saving_trans_{A,K},
 table_saving_*.tex, results_saving_models.json.
+
+## Status (session 2): consolidated write-up
+`ai_capital_note.tex/.pdf` is now the comprehensive note: model, closed-form long run,
+Ramsey dynamics in Setting A (d_A = 0.20, adjustment costs) and Setting B (equal d, no
+adjustment costs), the elasticity grid, and saving models (Ramsey, perpetual youth, annual
+OLG with 60 cohorts, Diamond, Solow). The S-curve is now the cosine ramp complete by year 10
+everywhere (capital_cases default changed). The annual OLG is solved by Levenberg-Marquardt
+from the Ramsey path; its long run is read at T-100 (truncation artifact in the final cohorts).
+Run: `python3 capital_cases.py; python3 capital_cases.py --equal-d-noadj; python3 saving_models.py`
+(about 6 minutes), then pdflatex x3.
