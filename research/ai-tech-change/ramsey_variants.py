@@ -44,8 +44,14 @@ T_DEF = 250
 
 
 class HH:
-    def __init__(self, theta=1.0, h=0.0, lam=0.0, name=""):
-        self.theta, self.h, self.lam, self.name = theta, h, lam, name
+    """kind = "tank": the lam share consumes its labor income (hand-to-mouth).
+    kind = "saver": the lam share saves a constant fraction s of total income (wage plus the
+    net capital income on its wealth; revaluation of existing capital is excluded from income but
+    not from wealth) and so accumulates wealth; s is calibrated so the group's wealth/wage ratio on
+    the initial BGP equals the aggregate's."""
+
+    def __init__(self, theta=1.0, h=0.0, lam=0.0, name="", kind="tank"):
+        self.theta, self.h, self.lam, self.name, self.kind = theta, h, lam, name, kind
 
 
 class Model2(cc.Model):
@@ -60,11 +66,45 @@ class Model2(cc.Model):
         spend0 = sum(self.K0[j] * x[j][0] for j in CAPS)       # pre-shock BGP investment (P = 1)
         c_pre = ss0["YZ"] - spend0
         w_pre = ss0["WZ"]
-        self.CRm1 = ((c_pre - hh.lam * w_pre) / (1 - hh.lam)) / G
+        self.V_pre = self.K0["K"] + self.K0["A"]                  # wealth at end of t = -1 (Q = P = 1)
+        self.c_pre = c_pre
+        if hh.kind == "saver":
+            self.s_rot = g * self.V_pre / (r0 * self.V_pre + w_pre)
+            c_rot_pre = (1 - self.s_rot) * hh.lam * (w_pre + r0 * self.V_pre)
+        else:
+            self.s_rot = None
+            c_rot_pre = hh.lam * w_pre
+        self.CRm1 = ((c_pre - c_rot_pre) / (1 - hh.lam)) / G
+
+    def rot_consumption(self, S):
+        """Aggregate consumption of the rule-of-thumb group, t = 0..T."""
+        hh, T = self.hh, self.T
+        if hh.kind == "tank" or hh.lam == 0:
+            return hh.lam * S["W"]
+        d_ = self.p["d"]
+        # Income = wage + share of aggregate net capital income (revaluation of existing capital
+        # excluded); cash on hand includes the full payoff, so wealth still absorbs gains and losses.
+        Kt = {j: S["K"][j][:T + 1] for j in CAPS}                    # units at start of t
+        Kn = {j: S["K"][j][1:T + 2] for j in CAPS}                   # units at end of t
+        Vagg = sum(S["Q"][j] * Kn[j] for j in CAPS)                  # end-of-t value, t = 0..T
+        Vlag = np.concatenate([[self.V_pre], Vagg[:-1]])
+        Gpay = sum(Kt[j] * (S["MP"][j] + S["extra"][j] + (1 - d_[j]) * S["Q"][j]) for j in CAPS)
+        Pi = S["Ynet"] - S["W"] - sum(d_[j] * S["Q"][j] * Kt[j] for j in CAPS)
+        C = np.empty(T + 1)
+        phis = np.empty(T + 1)
+        VR = hh.lam * self.V_pre
+        for t in range(T + 1):
+            phi = VR / Vlag[t]
+            phis[t] = phi
+            y = hh.lam * S["W"][t] + phi * Pi[t]
+            C[t] = (1 - self.s_rot) * y
+            VR = phi * Gpay[t] + hh.lam * S["W"][t] - C[t]
+        self.last_phi = phis
+        return C
 
     def household(self, S):
         hh, T = self.hh, self.T
-        CR = (S["C"] - hh.lam * S["W"]) / (1 - hh.lam)
+        CR = (S["C"] - self.rot_consumption(S)) / (1 - hh.lam)
         CRx = np.concatenate([[self.CRm1], CR, [G * CR[-1]]])          # t = -1 .. T+1
         X = CRx[1:] - hh.h * CRx[:-1]                                   # t = 0 .. T+1
         return CR, X
@@ -138,9 +178,13 @@ class Model2(cc.Model):
         lamU = X[:-1] ** (-self.hh.theta) - self.beta_ * self.hh.h * X[1:] ** (-self.hh.theta)
         m = self.beta_ * lamU[1:] / lamU[:-1]
         Z = self.Z
+        rotC = self.rot_consumption(S)
         return dict(r=1 / m - 1, lnY=np.log(S["Ynet"] / Z / self.ss0["YZ"]),
                     lnW=np.log(S["W"] / Z / self.ss0["WZ"]), labsh=S["W"] / S["F"],
-                    cR=CR / Z, K=S["K"]["K"], A=S["K"]["A"], err=self.err)
+                    cR=CR / Z, K=S["K"]["K"], A=S["K"]["A"], err=self.err,
+                    lnC=np.log(S["C"] / Z / self.c_pre), invsh=(S["Ynet"] - S["C"]) / S["Ynet"],
+                    rotC=rotC / Z, ricC=(1 - self.hh.lam) * CR / Z, Ynet=S["Ynet"] / Z,
+                    phi=getattr(self, "last_phi", None) if self.hh.kind == "saver" else None)
 
 
 def run(case, cap, typ, hh, cA, T=T_DEF, cK=C_K, size_scale=1.0):

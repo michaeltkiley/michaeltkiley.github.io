@@ -155,3 +155,13 @@ and jump, 10% long-run output gain. Key identity: sum of ln(1+r) deviations over
 average by <= 0.1 pp; IES scales responses by ~1.7x (0.5) and ~3.2x (0.2); habits matter only for surprise disembodied
 jumps (artifact-prone); adjustment-cost LEVEL matters more than how it is matched across K and A.
 Not yet done: milder habits in the main grid, hours margin, nominal rigidities.
+
+## Status (session 2): embodied-only dynamics with habits and rule-of-thumb types
+`embodied_dynamics.py` + `ai_embodied_note.tex/.pdf` (9 pages). Four log-utility household blocks: Log;
++ habits (h = 0.7); + hand-to-mouth (50% consume labor income); + constant savers (50% save a fixed share of
+income). "50 percent" was read as the POPULATION share; the savers' saving rate (3.76%) is calibrated so the
+group's wealth/wage ratio on the initial BGP equals the aggregate's. Savers' income = wage + share of net capital
+income, EXCLUDING revaluation of existing capital (including it gave extreme results after an embodied jump).
+ramsey_variants.HH now has kind="tank"|"saver". Main findings: real side nearly identical across blocks; habits shape
+the r response (hump; larger jump impact); H2M vs savers differ only for AI (labor share moves): H2M amplifies
+(~+0.1-0.3pp), savers dampen slightly.

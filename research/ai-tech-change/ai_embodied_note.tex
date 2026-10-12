@@ -1,0 +1,163 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,graphicx,caption}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parskip}{4pt}
+
+\title{Embodied Technical Progress in AI versus Regular Capital:\\
+Dynamics under Log Utility, Habits, and Rule-of-Thumb Consumers}
+\author{Research note (draft)}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent Embodied progress lowers the price of new capital in efficiency units, so it raises output only as
+capital is installed. This note compares the dynamics of the real interest rate, output, consumption,
+investment, the real wage and the labor share after embodied progress in AI capital and in regular capital, under four
+flex-price household blocks, all with log utility: a representative household; the same with habits; habits
+plus 50 percent \emph{hand-to-mouth} households, who consume their labor income; and habits plus 50 percent
+\emph{constant savers}, who save a fixed share of total income. Every shock is a one-time level shift that raises long-run
+output by 10 percent. The real side is almost the same in all four cases. The household block mainly changes the
+real interest rate, and by little: habits add a hump to the response to an anticipated shift and raise the impact
+response to a surprise jump. The two rule-of-thumb types differ from each other only for AI, where the labor share falls.
+Hand-to-mouth consumption tracks wages, which lag output under AI progress, so it amplifies the rate response by
+about 0.1 percentage points. Constant savers' income includes capital income, so their consumption tracks output
+and they dampen it slightly.
+\end{abstract}
+
+\section{Setup}
+
+\paragraph{Technology and shocks.} Production is a Cobb-Douglas bundle of regular capital and labor inside a CES
+aggregate with AI capital ($\varepsilon=1.5$, so AI substitutes for the bundle). Capital accumulates in efficiency units, and
+a new unit costs $P_j$. \emph{Embodied} progress lowers $P_j$: regular capital's price falls 22 percent (a 29 percent improvement in $1/P_K$) and AI's 71 percent
+(a 3.4-fold improvement), so that each shock raises long-run output by 10 percent. Depreciation is equal, $d_A=d_K=6.6$ percent. Adjustment costs are
+$P_j\tfrac{c_j}{2}(i_j-x_j)^2K_j$, with $c_K=1/x$ (a unit investment elasticity to $Q$) and $c_A$ calibrated so that AI capital converges to a
+small shock as fast as regular capital (13.1 versus 12.3). Trend growth is 1.5 percent, hours are fixed and the initial real rate is
+7.5 percent. Three timings:
+\begin{itemize}
+\item a surprise \emph{jump} at $t=0$;
+\item an \emph{S-curve}, announced at $t=0$, that rises as $\tfrac12[1-\cos(\pi t/10)]$ and is complete by year 10;
+\item \emph{half/half}: half the improvement as a jump, half along the S-curve.
+\end{itemize}
+
+\paragraph{Households.} Utility is logarithmic throughout.
+\begin{enumerate}
+\item \textbf{Log:} a representative household satisfying the Euler equation, $1+r_{t+1}=\big(\beta\,C_{t+1}/C_t\big)^{-1}$.
+\item \textbf{Log + habits:} utility of $C_t-hC_{t-1}$ with $h=0.7$ (internal, additive).
+\item \textbf{+ hand-to-mouth (50\%):} half of households consume exactly their labor income. The other half are Ricardian with habits,
+own all the capital, and set the real rate.
+\item \textbf{+ constant savers (50\%):} half of households save a constant share $s$ of their income, where income is the wage plus
+their share of net capital income. Revaluation of existing capital (gains and losses from lower $P$) is excluded from income but
+not from wealth. They accumulate wealth, and the saving rate is calibrated to the aggregate net saving rate on the initial balanced growth path
+($s=3.8$ percent), so that they hold their proportional share of wealth. The Ricardian half again has habits and sets the real rate.
+\end{enumerate}
+I read ``50 percent'' as the population share. The rule-of-thumb group's saving rate is a separate parameter, and
+3.8 percent is a calibration choice (Section~\ref{sec:caveats}).
+
+\section{Embodied progress along an anticipated S-curve}
+
+\begin{figure}[p]\centering
+\includegraphics[width=0.93\textwidth]{figures/fig_emb_scurve.pdf}
+\caption{Embodied progress, S-curve complete by year 10, same 10\% long-run output gain. Output, consumption and wages are log deviations from the pre-shock path.}\label{fig:scurve}
+\end{figure}
+
+\paragraph{The real side (the same in all four columns).}
+Output rises only slowly, because the gain has to be built: after 10 years it is up 1.9 percent for regular capital and
+0.9 percent for AI, against 10 percent in the long run. AI lags more because the technology improvement
+required is larger and a much bigger AI stock must be accumulated. The AI wage gain is smaller, 1.2 percent at year 10 against 2.2 percent,
+and the AI labor share falls steadily (from 69.6 to 69.2 percent at year 10 and 68.6 percent at year 20), while regular capital leaves it unchanged.
+Investment/output falls slightly under regular-capital progress and stays higher (17.5--18.0 percent) under AI,
+as AI capital is accumulated. Consumption dips slightly at first for AI, because early investment
+absorbs resources, and rises later.
+
+\paragraph{The real interest rate.}
+\begin{itemize}
+\item \emph{Log.} Regular capital: the rate rises gradually to a peak of 8.0 percent in year 9. AI: the rate stays at 7.5 percent for about five years and then rises to 7.9 percent.
+The decade-average is 0.24 and 0.09 points above 7.5 percent.
+\item \emph{Habits.} The response becomes more hump-shaped. Regular capital peaks higher (8.1 percent). AI shows a clear dip, from 7.7 percent in year 1 to
+7.4 percent in year 5, before a sharper rise to 8.1 percent in years 9--10. With habits, marginal utility depends on consumption relative to its recent level, which makes the rate respond to the
+\emph{change} in consumption and produces the early dip and the sharper later rise. I have not decomposed this further.
+The decade averages are 0.26 and 0.12.
+\item \emph{Hand-to-mouth and constant savers.} For regular capital, both are indistinguishable from habits alone (decade average 0.25--0.26).
+For AI there is a modest difference. Hand-to-mouth deepens the dip and raises the peak (trough 7.34 percent, peak 8.17 percent). Constant savers sit
+close to habits alone (trough 7.43, peak 8.06). The decade averages are about equal (0.11 versus 0.12), because the deeper dip offsets the higher peak.
+\end{itemize}
+
+\paragraph{Why the two rule-of-thumb types differ only for AI.} The Ricardian half sets the rate, and its consumption is aggregate consumption
+minus what the rule-of-thumb half consumes. Figure~\ref{fig:cons} shows consumption by type. Hand-to-mouth consumption equals the wage bill. Under regular-capital
+progress the labor share does not move, so wages track output, hand-to-mouth consumption tracks aggregate consumption, and the Ricardian half sees
+about the same path as the aggregate. Under AI progress, wages lag output (the labor share falls), so hand-to-mouth consumption is first above and
+later below the aggregate. The Ricardian half's consumption is first lower and later higher, and the rate moves more. Constant savers' income includes capital income, which
+rises with output, so their consumption tracks the aggregate closely under both types of progress. They add almost nothing to the volatility of Ricardian consumption.
+
+\begin{figure}[h]\centering
+\includegraphics[width=0.95\textwidth]{figures/fig_emb_cons_scurve.pdf}
+\caption{Consumption by household type, embodied progress, S-curve. Each type is shown relative to its own year-0 level; the dotted line is the aggregate relative to the pre-shock path.}\label{fig:cons}
+\end{figure}
+
+\section{A surprise jump}
+
+\begin{figure}[p]\centering
+\includegraphics[width=0.93\textwidth]{figures/fig_emb_jump.pdf}
+\caption{Embodied progress, surprise jump at $t=0$.}\label{fig:jump}
+\end{figure}
+
+After a surprise embodied jump, net output \emph{falls} on impact (by 0.4 percent for regular capital and 1.3 percent for AI under log utility), because the investment boom absorbs resources
+in adjustment costs, and then recovers as capital is installed. Consumption falls by 0.1 and 1.2 percent, and with habits by less (it rises 0.2 percent for regular capital and falls 0.6 percent for AI). The rate jumps on impact and decays:
+\begin{itemize}
+\item \emph{Log:} 8.1 percent (regular) and 8.1 percent (AI), with decade averages of +0.48 and +0.43 points.
+\item \emph{Habits} raise the impact response sharply, to 8.9 percent (regular) and 10.1 percent (AI), because habits make consumption sluggish while the economy must suddenly accumulate capital. AI is affected more, consistent with its larger required investment boom relative to its stock.
+\item \emph{Rule-of-thumb types} again matter only for AI (Table~\ref{tab:emb}): hand-to-mouth 10.04 percent and a decade average of +0.87, constant savers 9.72 percent and +0.71, against
+10.10 percent and +0.78 for habits alone. For regular capital the three are within 0.25 points on impact and 0.03 points on the decade average.
+\end{itemize}
+In the half/half case the response lies between the two pure cases (Appendix).
+
+\begin{table}[h]\centering\scriptsize
+\caption{Embodied progress, by timing and household block. ``Decade avg.'' is the mean of $r_1,\dots,r_{10}$ minus 7.5\%. Consumption, wages and output are log deviations from the pre-shock path.}\label{tab:emb}
+\resizebox{\textwidth}{!}{\input{table_emb.tex}}
+\end{table}
+
+\section{Summary and caveats}\label{sec:caveats}
+
+\begin{enumerate}
+\item \emph{Embodied progress raises the real rate through investment, not through output.} Output gains arrive late, so the rate response is driven
+by the investment boom and by the timing of consumption. AI and regular capital have the same shape but different sizes, and AI works through a larger relative investment boom.
+\item \emph{Habits matter more for the rate than rule-of-thumb consumers do.} They add a hump to anticipated shifts and a larger impact response to surprises.
+\item \emph{Hand-to-mouth versus constant savers matters only when the labor share moves, that is, for AI.} The difference is about 0.1 to 0.3 points on the rate.
+Hand-to-mouth households amplify, because their consumption follows wages. Constant savers dampen slightly, because their consumption follows total income.
+\item \emph{The real side hardly depends on the household block} (output, investment and wages are nearly identical across columns).
+\end{enumerate}
+
+\paragraph{Caveats.}
+\begin{itemize}
+\item The constant savers' saving rate (3.8\%) is calibrated so that they hold the same wealth-to-wage ratio as the economy on the initial path. A different
+saving rate or a different income definition (for example, including capital gains) changes their behavior. Including the revaluation of
+existing capital in their income produced extreme results after a jump, because installed-capital losses of 22--70 percent then collapse their consumption.
+\item $h=0.7$ is a strong annual habit. The earlier Ramsey summary shows that habits matter mainly after unanticipated windfalls.
+\item Hours are fixed, there are no nominal rigidities, and the long-run real rate is pinned by the Ricardian Euler equation, so these results are about transitions.
+\end{itemize}
+
+\appendix
+\section{Additional figures and verification}
+
+\begin{figure}[h]\centering
+\includegraphics[width=0.9\textwidth]{figures/fig_emb_mixed.pdf}
+\caption{Embodied progress, half jump and half S-curve.}
+\end{figure}
+
+\begin{figure}[h]\centering
+\includegraphics[width=0.95\textwidth]{figures/fig_emb_cons_jump.pdf}
+\caption{Consumption by household type, embodied progress, surprise jump.}
+\end{figure}
+
+All results come from \texttt{embodied\_dynamics.py} (built on \texttt{ramsey\_variants.py} and \texttt{capital\_cases.py}). Each transition is a nonlinear
+perfect-foresight solve over 250 years. The saver block tracks the group's wealth recursively, and its wealth share stays between 0 and 1 throughout.
+
+\begin{table}[h]\centering\scriptsize
+\input{table_emb_checks.tex}
+\end{table}
+
+\end{document}
